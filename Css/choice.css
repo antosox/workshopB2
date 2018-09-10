@@ -45,7 +45,7 @@ body {
   margin-left: -50px;
 }
 
-.tinder_love .fa-heart {
+.tinder_love .fa-check {
   opacity: 0.7;
   transform: scale(1);
 }
@@ -133,10 +133,10 @@ body {
   vertical-align: middle;
 }
 
-.fa-heart {
-  color: #FFACE4;
+.fa-check {
+  color: #008000;
 }
 
 .fa-remove {
-  color: #CDD6DD;
+  color: #FF0000;
 }
