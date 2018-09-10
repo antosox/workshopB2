@@ -1,0 +1,73 @@
+h1 {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 25px;
+    text-align: center;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #ef5a20 !important;
+    margin: 20px 0;
+}
+
+input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.browser-default):focus {
+    border-bottom: 1px solid #ef5a20 !important;
+    -webkit-box-shadow: 0 1px 0 0 #ef5a20 !important;
+    box-shadow: 0 1px 0 0 #ef5a20 !important;
+}
+  /* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid #ef5a20 !important;
+    box-shadow: 0 1px 0 0 #ef5a20 !important;
+}
+
+.datepicker-date-display,
+.datepicker-table td.is-selected,
+.timepicker-digital-display {
+    background-color: #6e2996;
+}
+
+.timepicker-tick:focus {
+    background-color: #6e2996;
+}
+
+.datepicker-cancel, 
+.datepicker-clear, 
+.datepicker-today, 
+.datepicker-done,
+.timepicker-close,
+.timepicker-cancel {
+    color: #6e2996;
+}
+
+.datepicker-table td.is-today {
+    color: #ef5a20;
+    font-weight: bold;
+}
+
+.timepicker-clear, .timepicker-close {
+    padding: 0 10px;
+}
+
+.modal {
+    width: 100%;
+}
+
+form p {
+    text-align: center;
+}
+
+form p img {
+    width: 30px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #ef5a20;
+}
+
+.btn-small, .btn-small:hover {
+    background-color: #6e2996;
+    margin: 0 auto;
+}

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald:700" rel="stylesheet"> 
     <title>Evender</title>
 </head>
     <body>
@@ -16,8 +22,8 @@
                     <img src="img/logo.svg" alt="Evender">
                 </h1>
             </div>
-            <div class="btn-login">
-                <a href="">
+            <div class="btn-off">
+                <a href="#">
                     <img src="img/disconnection.svg" alt="disconnection">
                 </a>
             </div>
