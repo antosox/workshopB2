@@ -26,7 +26,8 @@
             <section class="event">
                 <img src="img/events/bowling.jpg" alt="event">
                 <div class="infos">
-                    <p>Bowling, 12/09/2018, Nantes</p>
+                    <h2>Bowling</h2>
+                    <p>12/09/2018, Nantes</p>
                 </div>
                 <div class="nb-persons">
                     <img src="img/nb-person.svg" alt="">
