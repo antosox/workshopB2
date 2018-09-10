@@ -31,7 +31,7 @@
             <h4>Inscription</h4>
             <div class="col s12">
 
-                <form action="/workshopb2/Modules/TraitementInscription.php" method="POST">
+                <form action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Modules/TraitementInscription.php" method="POST">
                     <table class="infoprofil">
 
                         <tbody>
