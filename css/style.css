@@ -1,3 +1,5 @@
+/*_______________________________ GENERAL RULES _______________________________*/
+
 h1 {
     font-family: Oswald, sans-serif;
     font-weight: 700;
@@ -6,7 +8,90 @@ h1 {
     text-align: center;
 }
 
-/* label focus color */
+/*____________________________________ INDEX ____________________________________*/
+
+.btn-add_event, 
+.btn-off,
+.btn-flat:focus {
+    width: 80px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-add_event {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn-off {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logo {
+    margin-top: 100px;
+}
+
+.illustration {
+    max-width: 100%;
+}
+
+.infos {
+    position: absolute;
+    left: 0;
+}
+
+.infos h2, .infos p {
+    font-family: Oswald, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline;
+}
+
+.nb-persons {
+    position: absolute;
+    right: 0;
+}
+
+.nb-persons img {
+    width: 20px;
+    display: inline-block;
+}
+
+.nb-persons p {
+    font-family: Oswald, sans-serif;
+    color: #ef5a20;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0;
+}
+
+.admin-organizer {
+    margin-top: 20px;
+}
+
+.admin-organizer p {
+    font-family: Oswald, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+img.medal {
+    width: 20px;
+}
+
+/*__________________________________ ADD EVENT __________________________________*/
+
+form p {
+    text-align: center;
+}
+
+form p img {
+    width: 30px;
+}
+
 .input-field input:focus + label {
     color: #ef5a20 !important;
     margin: 20px 0;
@@ -53,14 +138,6 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 .modal {
     width: 100%;
-}
-
-form p {
-    text-align: center;
-}
-
-form p img {
-    width: 30px;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
