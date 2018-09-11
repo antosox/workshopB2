@@ -18,3 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('select').formSelect();
   });
         
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });

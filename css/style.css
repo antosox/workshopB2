@@ -40,7 +40,7 @@ h1 {
 
 .infos {
     position: absolute;
-    left: 0;
+    left: 5px;
 }
 
 .infos h2, .infos p {
@@ -52,7 +52,7 @@ h1 {
 
 .nb-persons {
     position: absolute;
-    right: 0;
+    right: 5px;
 }
 
 .nb-persons img {
@@ -69,7 +69,19 @@ h1 {
 }
 
 .admin-organizer {
-    margin-top: 20px;
+    padding-left: 5px;
+    margin-top: 30px;
+    width: 20%;
+}
+
+.medal-organizer {
+    margin-top: 30px;
+    width: 60%;
+}
+
+.admin-organizer, .medal-organizer {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .admin-organizer p {
@@ -81,6 +93,38 @@ h1 {
 img.medal {
     width: 20px;
 }
+
+.description {
+    padding: 0 15px;
+}
+
+.description p {
+    text-align: justify;
+    font-family: Montserra, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.validate, .eject {
+    width: 45%;
+    display: inline-block;
+}
+
+.validate img, .eject img {
+    width: 100%;
+}
+
+footer > a {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+   margin-top: 100px;
+}
+
 
 /*__________________________________ ADD EVENT __________________________________*/
 

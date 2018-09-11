@@ -42,27 +42,35 @@
                     <p>Alexis</p>
                 </div>
                 <div class="medal-organizer">
-                        <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal" >
-                        <img src="img/medals/medal-ambiance.png" alt="medal-ambiance" class="medal" >
-                        <img src="img/medals/medal-price.png" alt="medal-price" class="medal" >
-                        <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal" >
+                    <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal" >
+                    <img src="img/medals/medal-ambiance.png" alt="medal-ambiance" class="medal" >
+                    <img src="img/medals/medal-price.png" alt="medal-price" class="medal" >
+                    <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal" >
                 </div>
                 <div class="description">
                     <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
                 </div>
             </section>
             <section>
-                <button class="validate">
+                <button class="validate btn-flat">
                     <img src="img/validate.svg" alt="validate">
                 </button>
-                <button class="eject">
+                <button class="eject btn-flat">
                     <img src="img/eject.svg" alt="eject">
                 </button>
             </section>
         </main>
         <footer>
-            <div>
-                <a href="">Mes évènements</a>  
+            <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
+              <!-- Modal Structure -->
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Modal Header</h4>
+                    <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
             </div>
         </footer>
     </body>
