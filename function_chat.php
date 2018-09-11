@@ -2,12 +2,16 @@
 
 namespace evender;
 
-use Includes/config.php;
+//include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
+
+use evender\config;
+use \PDO;
 
 class Chat {
 
-    $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
-
+    public function createPDO(){
+           $this->db = new PDO('mysql:host=localhost;dbname=evender', 'root', '');
+    }
     public function delete_event($id_event){
 
         $delete = $this->db->prepare("DELETE FROM `event` WHERE id_event = '$id_event'");
@@ -18,7 +22,7 @@ class Chat {
 
         $message = $this->db->prepare("INSERT INTO messages_users (`message_user`, `id_chat`, `id_user`) VALUES (:message, :id_chat, :id_user)");
         $message->bindParam(':message', $message);
-                ->bindparam(':id_chat', $id_chat);
+        $message->bindparam(':id_chat', $id_chat);
         $message->execute();
     
     }
@@ -58,7 +62,7 @@ class Chat {
 
         $message = $this->db->prepare("INSERT INTO messages_staff (`message_staff`, `id_admin`, `id_channel`) VALUES (:message, :id_chat, :id_user)");
         $message->bindparam(':id_chat', $id_chat);
-                ->bindparam(':message', $message);
+        $message->bindparam(':message', $message);
         $message->execute();
 
     }
@@ -75,7 +79,7 @@ class Chat {
 
         $admin = $this->db->prepare("SELECT `id_channel`, `id_admin`, `id_event` FROM staff WHERE `id_channel` = :id_chat, `id_admin` = $id_user, `id_event` = :id_event");
         $admin->bindparam(':id_chat', $id_chat);
-              ->bindparam(':id_event', $id_event);
+        $admin->bindparam(':id_event', $id_event);
         $admin->execute();
         return $is_admin = $admin->fetchAll();
     
