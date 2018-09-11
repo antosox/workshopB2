@@ -18,8 +18,6 @@ $statement->execute(array(":email" => $_POST['login']));
 $statement->execute();
 $answer = $statement->fetch();
 
-
-
 if ($answer['password'] != $_POST['password']) {
     $answer = false;
 }
