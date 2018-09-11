@@ -257,6 +257,31 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 /*_____________________________ CHAT _____________________________*/
 
 .top img {
-    width: 50px;
+    width: 30px;
 }
 
+.top {
+    position: relative;
+    color: #eeeeee;
+    padding: 20px;
+}
+
+.top h2 {
+    font-family: Oswald, sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ef5a20;
+}
+
+.top .mail {
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+
+.top .trash {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}

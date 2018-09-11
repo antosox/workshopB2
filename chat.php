@@ -44,7 +44,7 @@
                 <img src="img/delete.png" alt="delete">
             </a>
         </div>
-        <section>
+        <section class="space-chat">
             <div class="sender">
                 <h3>pseudo</h3>
                 <p>blablablalablablabla</p>
