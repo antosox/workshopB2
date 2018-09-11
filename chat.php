@@ -4,9 +4,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 
 $chat = new Addon_chat();
 
-    $id_user = $_SESSION['user']['id'] = '10';
+    $id_user = $_SESSION['user']['id'] = '9';
     $id_chat = $_SESSION['chat']['id'] = '10';
-    $id_event = $_SESSION['event']['id'] = '10';
+    $id_event = $_SESSION['event']['id'] = '11';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,9 +46,9 @@ $chat = new Addon_chat();
             </a>
             <h2 class="title-event">
             <?php $title = $chat->event_name($id_event); 
-            echo($title['title']);
-            ?></h2>
-            <?php if($chat->is_event_admin($id_chat, $id_user, $id_event)){ ?>
+            echo($title['title']);?></h2>
+            <?php 
+            if(!empty($chat->is_event_admin($id_user, $id_event))){ ?>
             <a href="" class="trash">
                 <img src="img/delete.png" alt="delete">
             </a><?php } ?>

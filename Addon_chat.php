@@ -74,10 +74,9 @@ class Addon_chat {
         return $is_user = $user->fetchAll();
     }
 
-    public function is_event_admin($id_chat, $id_user, $id_event){
+    public function is_event_admin($id_user, $id_event){
         
-        $admin = $this->db->prepare("SELECT `id_channel`, `id_admin`, `id_event` FROM staff WHERE `id_channel` = :id_chat, `id_admin` = $id_user, `id_event` = :id_event");
-        $admin->bindparam(':id_chat', $id_chat);
+        $admin = $this->db->prepare("SELECT `id_admin`, `id_event` FROM staff WHERE `id_admin` = $id_user AND `id_event` = :id_event");
         $admin->bindparam(':id_event', $id_event);
         $admin->execute();
         return $is_admin = $admin->fetchAll();
