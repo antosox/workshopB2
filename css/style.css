@@ -8,6 +8,25 @@ h1 {
     text-align: center;
 }
 
+h4 {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #6e2996;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+td {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+}
+
+a {
+    font-family: Roboto, sans-serif;
+    color: #ef5a20;
+}
+
 /*____________________________________ INDEX ____________________________________*/
 
 .btn-add_event, 
@@ -40,7 +59,7 @@ h1 {
 
 .infos {
     position: absolute;
-    left: 0;
+    left: 5px;
 }
 
 .infos h2, .infos p {
@@ -52,7 +71,7 @@ h1 {
 
 .nb-persons {
     position: absolute;
-    right: 0;
+    right: 5px;
 }
 
 .nb-persons img {
@@ -69,7 +88,19 @@ h1 {
 }
 
 .admin-organizer {
-    margin-top: 20px;
+    padding-left: 5px;
+    margin-top: 30px;
+    width: 20%;
+}
+
+.medal-organizer {
+    margin-top: 30px;
+    width: 60%;
+}
+
+.admin-organizer, .medal-organizer {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .admin-organizer p {
@@ -81,6 +112,37 @@ h1 {
 img.medal {
     width: 20px;
 }
+
+.description {
+    padding: 0 10px;
+}
+
+.description p {
+    text-align: justify;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+}
+
+.validate, .eject {
+    width: 45%;
+    display: inline-block;
+}
+
+.validate img, .eject img {
+    width: 100%;
+}
+
+footer > a {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+   margin-top: 100px;
+}
+
 
 /*__________________________________ ADD EVENT __________________________________*/
 
@@ -98,14 +160,14 @@ form p img {
 }
 
 input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.browser-default):focus {
-    border-bottom: 1px solid #ef5a20 !important;
-    -webkit-box-shadow: 0 1px 0 0 #ef5a20 !important;
-    box-shadow: 0 1px 0 0 #ef5a20 !important;
+    border-bottom: 1px solid #6e2996 !important;
+    -webkit-box-shadow: 0 1px 0 0 #6e2996 !important;
+    box-shadow: 0 1px 0 0 #6e2996 !important;
 }
   /* label underline focus color */
 .input-field input:focus {
-    border-bottom: 1px solid #ef5a20 !important;
-    box-shadow: 0 1px 0 0 #ef5a20 !important;
+    border-bottom: 1px solid #6e2996 !important;
+    box-shadow: 0 1px 0 0 #6e2996 !important;
 }
 
 .datepicker-date-display,
@@ -147,4 +209,20 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 .btn-small, .btn-small:hover {
     background-color: #6e2996;
     margin: 0 auto;
+}
+
+
+/*_________________________ INSCRIPTION _________________________*/
+
+.inscription {
+    padding-bottom: 50px;
+}
+#ins_submit_btn {
+    position: absolute;
+    left: 10px;
+}
+
+#ins_canc_btn {
+    position: absolute;
+    right: 10px;
 }
