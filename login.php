@@ -90,7 +90,7 @@ if ($answer['password'] != $_POST['password']) {
             </div>
             <div class="row">
                 <button class="btn co_btn_sub purple darken-3" type="submit">Connexion</button>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/inscription.php" role="button" class="btn co_btn_ins" type="submit">Inscription</a>
+                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/inscription.php" role="button" class="btn co_btn_ins orange darken-3" type="submit">Inscription</a>
             </div>
             </form>
         </div>
