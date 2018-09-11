@@ -22,10 +22,24 @@ td {
     font-size: 15px;
 }
 
-a {
+.title-event {
     font-family: Roboto, sans-serif;
     color: #ef5a20;
+    font-weight: bold;
+    text-transform: uppercase;
 }
+
+.annonces, .discuss {
+    font-family: Roboto, sans-serif;
+    color: #333333;
+    font-weight: normal;
+}
+
+.event-row td a {
+    display: block;
+    text-align: center
+}
+
 
 /*____________________________________ INDEX ____________________________________*/
 
