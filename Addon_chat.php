@@ -54,7 +54,7 @@ class Addon_chat {
         $nbr = $this->db->prepare("SELECT COUNT(`message_user`) FROM messages_users WHERE `id_chat` = :id_chat");
         $nbr->bindparam(':id_chat', $id_chat);
         $nbr->execute();
-        return $nbr_message = $nbr->fetchAll();
+        return $nbr_message = $nbr->fetch();
     }
 
     public function staff_new_message($id_chat, $message, $id_user){

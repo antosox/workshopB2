@@ -55,7 +55,7 @@ $chat = new Addon_chat();
         </div>
         <section class="space-chat">
         <?php 
-
+            $nbr_chat = $chat->nbr_message($id_chat);
         ?>
             <div class="sender">
                 <h3>pseudo</h3>
@@ -71,7 +71,7 @@ $chat = new Addon_chat();
             <input type="text" name="message" id="message" placeholder="Ecrire son message">
         </div>
         <div class="input-field col s12">
-            <input class="plane-send" type="submit" value="Envoyer">
+            <input class="plane-send" onclick="submit()" value="Envoyer">
         </div> 
         </form>
     </main>
@@ -112,4 +112,43 @@ $chat = new Addon_chat();
     </footer>
 </body>
 <script src="js/script.js"></script>
+<script>
+            var ws = new WebSocket('ws://localhost:9000');
+            console.log(ws);
+            ws.onopen = function () {
+                console.log('websocket is connected ...');
+            }
+        
+            ws.onmessage = function (event) {
+                    var msg = JSON.parse(event.data);
+            console.log(msg);
+            const scrolls = document.getElementById('reponse_ws');
+            let newDiv = document.createElement('div');
+                if (msg.mine == 0) {
+                    newDiv.className = "receiver";
+                    newDiv.innerHTML = msg.user + "<br>" + msg.message;
+                    scrolls.append(newDiv);
+                } else {
+                    newDiv.className = "sender";
+                    newDiv.innerHTML = msg.user + "<br>" + msg.message;
+                    scrolls.append(newDiv);
+                }
+            element = document.getElementById('div_scroolable_avec_tout_le_chat');
+            element.scrollTop = element.scrollHeight;
+            }
+
+function submit() {
+
+            var msg = document.getElementById('message').value;
+            var chatroom = <?php echo $id_chat ?>;
+            var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
+            var data = {
+            message: msg,
+                    user: user,
+                    chatroom: chatroom,
+                    mine: 0};
+            ws.send(JSON.stringify(data));
+                
+        }
+        </script>
 </html>
