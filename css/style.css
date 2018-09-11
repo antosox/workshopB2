@@ -253,3 +253,10 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     padding-bottom: 50px;
 }
 
+
+/*_____________________________ CHAT _____________________________*/
+
+.top img {
+    width: 50px;
+}
+

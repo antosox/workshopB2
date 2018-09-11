@@ -36,12 +36,12 @@
     </header>
     <main>
         <div class="top">
-            <a href="mailto:">
+            <a href="mailto:" class="mail">
                 <img src="img/mail.png" alt="mail">
             </a>
             <h2 class="title-event">Bowling</h2>
-            <a href="">
-                <img src="img/delete.png" alt="">
+            <a href="" class="trash">
+                <img src="img/delete.png" alt="delete">
             </a>
         </div>
         <section>
