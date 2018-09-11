@@ -1,6 +1,3 @@
-<?php
-   namespace evender;
-   ?>
 <!DOCTYPE html>
 <html lang="fr">
    <head>
