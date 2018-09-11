@@ -28,9 +28,6 @@ if ($answer['password'] != $_POST['password']) {
 
             
             $_SESSION['user']['id'] = $answer['id_user'];
-            
-           
-            $_SESSION['user']['login'] = $_POST['login'];
            
            
             $_SESSION['connected'] = true;
