@@ -22,6 +22,11 @@ td {
     font-size: 15px;
 }
 
+a {
+    font-family: Roboto, sans-serif;
+    color: #ef5a20;
+}
+
 /*____________________________________ INDEX ____________________________________*/
 
 .btn-add_event, 
@@ -155,14 +160,14 @@ form p img {
 }
 
 input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.browser-default):focus {
-    border-bottom: 1px solid #ef5a20 !important;
-    -webkit-box-shadow: 0 1px 0 0 #ef5a20 !important;
-    box-shadow: 0 1px 0 0 #ef5a20 !important;
+    border-bottom: 1px solid #6e2996 !important;
+    -webkit-box-shadow: 0 1px 0 0 #6e2996 !important;
+    box-shadow: 0 1px 0 0 #6e2996 !important;
 }
   /* label underline focus color */
 .input-field input:focus {
-    border-bottom: 1px solid #ef5a20 !important;
-    box-shadow: 0 1px 0 0 #ef5a20 !important;
+    border-bottom: 1px solid #6e2996 !important;
+    box-shadow: 0 1px 0 0 #6e2996 !important;
 }
 
 .datepicker-date-display,
@@ -204,4 +209,20 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 .btn-small, .btn-small:hover {
     background-color: #6e2996;
     margin: 0 auto;
+}
+
+
+/*_________________________ INSCRIPTION _________________________*/
+
+.inscription {
+    padding-bottom: 50px;
+}
+#ins_submit_btn {
+    position: absolute;
+    left: 10px;
+}
+
+#ins_canc_btn {
+    position: absolute;
+    right: 10px;
 }

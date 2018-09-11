@@ -15,18 +15,16 @@
 
 <body>
     <header>
-        <div class="btn-add_event">
+        <button class="btn-add_event btn-flat">
             <img src="img/add-event.svg" alt="">
-        </div>
+        </button>
+        <button class="btn-off btn-flat">
+            <img src="img/disconnection.svg" alt="disconnection">
+        </button>
         <div class="logo">
             <h1>
                 <img src="img/logo.svg" alt="Evender">
             </h1>
-        </div>
-        <div class="btn-login">
-            <a href="">
-                <img src="img/disconnection.svg" alt="disconnection">
-            </a>
         </div>
     </header>
     <main>
