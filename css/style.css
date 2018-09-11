@@ -50,7 +50,7 @@ a {
 }
 
 .logo {
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .illustration {
@@ -231,8 +231,6 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     padding-bottom: 50px;
 }
 
-
-
 /*_________________________ CONNEXION _________________________*/
 
 .co_btn_sub {
@@ -308,4 +306,18 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 .receiver {
     margin-right: 15px;
     text-align: right;
+}
+
+.plane-send {
+    background-image: url("../img/send.png");
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.plane-send:focus {
+    border-bottom: none;
 }

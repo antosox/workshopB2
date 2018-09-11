@@ -1,6 +1,5 @@
 <?php
 
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
 session_start();

@@ -55,10 +55,8 @@
         <form action="">
         <div class="input-field col s12">
             <input type="text" name="message" id="message" placeholder="Ecrire son message">
-        </div>
-        <div class="input-field col s12">
-            <input class="plane-send" type="submit" value="Envoyer">
-        </div> 
+        </div>            
+        <input class="plane-send" type="submit" value="Envoyer">
         </form>
     </main>
     <footer>
