@@ -50,55 +50,50 @@ if ($answer['password'] != $_POST['password']) {
 <!DOCTYPE html>
 
 <html>
-
     <head>
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, userscalable=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <link rel="stylesheet" href="/Css/login.css">
-        <link rel="stylesheet" href="/Css/main.css">
-        <title>Identifiez-vous</title>
-
+        <!-- <link rel="stylesheet" href="Css/modal.css">
+        <link rel="stylesheet" href="Css/main.css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
+        <title>Connexion Evender</title>
     </head>
-
-    <body>
-
-        <div id="login-wrapper" class="card mh-auto">
-
-            <h1>Evender</h1>
-
-            <hr>
-            <br>
-
+    <body class="connection">
+        <header>
+            <div class="logotype">
+                <h1>
+                    <img src="img/logo.svg" alt="Evender">
+                </h1>
+            </div>
+        </header>
+        <div id="login-wrapper">
+            <h4>Connexion</h4>
             <form action="/login.php" method="post">
-
-                <label class="login-resp-label">Email</label>
-                <div class="input-group mb-3 input-group-login">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text login-label" style="width: 150px;">Email</span>
-                    </div>
-                    <input type="text" name="login" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>" value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" >
+            <i class="material-icons prefix connexion">mail</i>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="login" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>" value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" placeholder="Login" >
                 </div>
-
-                <label class="login-resp-label">Mot De Passe</label>
-                <div class="input-group mb-3 input-group-login">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text login-label" style="width: 150px;">Mot De Passe</span>
-                    </div>
-                    <input type="password" name="password" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>"value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" >
+            </div>
+            <i class="material-icons prefix connexion">lock</i>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="password" name="password" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>"value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" placeholder="Mot de passe" >
                 </div>
-
-                <div class="w-100-center">
-                    <button class="btn" type="submit">connexion</button>
-                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/inscription.php" role="button" class="btn" type="submit">Inscription</a>
-                </div>
-
+            </div>
+            <div class="row">
+                <button class="btn co_btn_sub purple darken-3" type="submit">Connexion</button>
+                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/inscription.php" role="button" class="btn co_btn_ins" type="submit">Inscription</a>
+            </div>
             </form>
-        
         </div>
-
     </body>
 
 </html>

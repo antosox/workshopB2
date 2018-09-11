@@ -211,7 +211,6 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     margin: 0 auto;
 }
 
-
 /*_________________________ INSCRIPTION _________________________*/
 
 #ins_submit_btn {
@@ -231,3 +230,26 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 .inscription {
     padding-bottom: 50px;
 }
+
+
+
+/*_________________________ CONNEXION _________________________*/
+
+.co_btn_sub {
+    position: absolute;
+    left: 10px;
+}
+
+.co_btn_ins {
+    position: absolute;
+    right: 10px;
+}
+
+.material-icons.prefix.connexion {
+    margin-left: 10px;
+}
+
+.connection {
+    padding-bottom: 50px;
+}
+
