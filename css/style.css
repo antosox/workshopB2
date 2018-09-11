@@ -20,6 +20,7 @@ h4 {
 td {
     font-family: Roboto, sans-serif;
     font-size: 15px;
+    width: 100%;
 }
 
 .title-event {
@@ -27,12 +28,14 @@ td {
     color: #ef5a20;
     font-weight: bold;
     text-transform: uppercase;
+    font-size: 14px;
 }
 
 .annonces, .discuss {
     font-family: Roboto, sans-serif;
     color: #333333;
     font-weight: normal;
+    font-size: 12px;
 }
 
 .event-row td a {
@@ -40,6 +43,24 @@ td {
     text-align: center
 }
 
+footer > a {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+.modal h4 {
+    font-size: 16px;
+}
+
+.modal {
+    width: 100%;
+}
+
+.btn {
+    font-size: 12px;
+}
 
 /*____________________________________ INDEX ____________________________________*/
 
@@ -142,15 +163,6 @@ img.medal {
     width: 100%;
 }
 
-footer > a {
-    font-family: Oswald, sans-serif;
-    font-weight: 700;
-    width: 100%;
-    text-align: center;
-}
-
-
-
 /*__________________________________ ADD EVENT __________________________________*/
 
 form p {
@@ -203,10 +215,6 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 .timepicker-clear, .timepicker-close {
     padding: 0 10px;
-}
-
-.modal {
-    width: 100%;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
@@ -296,14 +304,17 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     font-family: Oswald, sans-serif;
     color: #6e2996;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 12px;
     text-transform: uppercase;
+    margin: 20px 0 10px;
 }
 
 .sender p, 
 .receiver p {
     font-family: Roboto, sans-serif;
     color: #333333;
+    margin: 0;
+    font-size: 12px;
 }
 
 .sender {
@@ -316,16 +327,40 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     text-align: right;
 }
 
+input:not([type]):focus:not([readonly]),
+input:not([type]) {
+    border-bottom: transparent;
+}
+
+input#message {
+    font-size: 12px;
+}
+
+.message-container {
+    position: relative;
+    height: 60px;
+}
+
+.message {
+    margin-left: 10px;
+    width: 70%;
+}
+
+.message-send {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    width: 20px;
+}
+
 .plane-send {
-    display: inline-block;
     background-image: url("../img/send.png");
     border: none;
     color: transparent;
     background-color: transparent;
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 30px;
+    background-size: 20px 20px;
+    background-position: right;
 }
 
 .plane-send:focus {
