@@ -12,7 +12,7 @@ h4 {
     font-family: Oswald, sans-serif;
     font-weight: 700;
     font-size: 20px;
-    color: #6e2996;
+    color: #333333;
     text-transform: uppercase;
     text-align: center;
 }
@@ -211,12 +211,8 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     margin: 0 auto;
 }
 
-
 /*_________________________ INSCRIPTION _________________________*/
 
-.inscription {
-    padding-bottom: 50px;
-}
 #ins_submit_btn {
     position: absolute;
     left: 10px;
@@ -226,3 +222,34 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     position: absolute;
     right: 10px;
 }
+
+.material-icons.prefix {
+    color: #6e2996;
+}
+
+.inscription {
+    padding-bottom: 50px;
+}
+
+
+
+/*_________________________ CONNEXION _________________________*/
+
+.co_btn_sub {
+    position: absolute;
+    left: 10px;
+}
+
+.co_btn_ins {
+    position: absolute;
+    right: 10px;
+}
+
+.material-icons.prefix.connexion {
+    margin-left: 10px;
+}
+
+.connection {
+    padding-bottom: 50px;
+}
+
