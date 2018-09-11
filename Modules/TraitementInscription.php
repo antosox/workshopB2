@@ -23,7 +23,7 @@ if (isset($_POST)) {
     $req->bindValue(':ville', $ville);
     $req->execute();
     $verification = $req->fetch();
-    
+
     if (empty($verification)) {
 
     $req = $db->prepare("INSERT INTO ville (nom) values ( :ville)");
@@ -41,7 +41,7 @@ if (isset($_POST)) {
         $req->bindValue(':MDP', hash('sha256', $password1));
         $req->bindValue(':ville', $verification['id']);
         $req->execute();  
-        header('location: http://' . $_SERVER['DOCUMENT_ROOT'] . '/login.php');
+        header('location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
     }
 
 else if ($resultat == false && $verification == null && ($password1 == $password2)) {

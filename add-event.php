@@ -17,28 +17,26 @@
 <body>
     <section class="add-event">
         <div class="container">
+       
             <h1>Ajouter un évènement</h1>
-            <form action="">
+            <form enctype="multipart/form-data" action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Modules/TraitementAddEvent.php" method="post">
+            
                 <p><img src="img/picture.svg" alt="picture-file"></p>
                 <div class="file-field">
                     <div class="btn-small orange darken-3">
                         <span>Image</span>
-                        <input type="file">
+                        <input type="file" name="EventImage"/>
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
                     </div>
                 </div>
                 <div class="input-field col s6">
-                    <input id="title_event" type="text" class="validate">
+                    <input id="title_event" name="title_event" type="text" class="validate">
                     <label for="title_event" class="text-orange text-darken-3">Titre de l'évènement</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="organizer_event" type="text" class="validate">
-                    <label for="organizer_event">Organisateur</label>
-                </div>
-                <div class="input-field col s6">
-                    <select>
+                    <select name="type">
                         <option value="" selected disabled>Type de l'évènement</option>
                         <option value="1">Culture</option>
                         <option value="2">Divertissement</option>
@@ -47,18 +45,24 @@
                 </div>
                 <p><img src="img/clock.png" alt="clock"></p>
                 <div class="input-field s6">
-                    <input id="datepicker" type="text" class="datepicker" placeholder="Date">
+                    <input id="datepicker" name="date" type="text" class="datepicker" placeholder="Date">
                 </div>
                 <div class="input-field s6">
-                    <input type="text" id="timepicker" class="timepicker" placeholder="Heure">
+                    <input type="text" name="time" id="timepicker" class="timepicker" placeholder="Heure">
                 </div>
                 <p><img src="img/place.png" alt="place"></p>
                 <div class="input-field s6">
                     <input type="text" name="address_event" id="address_event" placeholder="Adresse"> 
                 </div>
+                <div class="input-field col s6">
+                    <input id="desc" name="desc" type="text" class="validate">
+                    <label for="desc" class="text-orange text-darken-3">Description</label>
+                </div>
                 <button class="btn-small waves-effect waves-light" type="submit" name="action">Valider</button>           
             </form>
         </div>
+
+
     </section>
 </body>
 <script src="js/script.js"></script>
