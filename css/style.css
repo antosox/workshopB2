@@ -262,8 +262,8 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 .top {
     position: relative;
-    color: #eeeeee;
-    padding: 20px;
+    background-color: #eeeeee;
+    padding: 15px;
 }
 
 .top h2 {
@@ -277,11 +277,34 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 .top .mail {
     position: absolute;
     left: 10px;
-    top: 0;
+    top: 10px;
 }
 
 .top .trash {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 10px;
+}
+
+.sender h3, .receiver h3 {
+    font-family: Oswald, sans-serif;
+    color: #6e2996;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.sender p, .receiver p {
+    font-family: Roboto, sans-serif;
+    color: #333333;
+}
+
+.sender {
+    margin-left: 15px;
+    text-align: left;
+}
+
+.receiver {
+    margin-right: 15px;
+    text-align: right;
 }
