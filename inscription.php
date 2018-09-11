@@ -1,10 +1,8 @@
 <?php
     namespace evender;
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, userscalable=no">
@@ -20,80 +18,69 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
     <title>Inscription Evender</title>
 </head>
-
 <body>
+    <header class="inscription-bg">
+        <div class="logotype">
+            <h1>
+                <img src="img/logo.svg" alt="Evender">
+            </h1>
+        </div>
+    </header>
     <script>
         $(document).ready(function () {
             $('select').material_select();
         });
     </script>
     <div id="login-wrapper" class="inscription container">
-        <div class="row alignement">
-            <h4>Inscription</h4>
-            <div class="col s12">
-                <form action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Modules/TraitementInscription.php" method="POST">
-                    <table class="infoprofil">
-                        <tbody>
-                            <tr>
-                                <i class="material-icons">account_box</i>
-                                <td>
-                                    <div class="input-field col s12">
-                                        <input name="nom" id="nom" type="text" class="validate" placeholder="Nom">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="input-field col s12">
-                                        <input name="prenom" id="prenom" type="text" class="validate" placeholder="Prénom">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="input-field">
-                                        <i class="material-icons">location_city</i>
-                                        <input type="search" id="city" name="ville" class="form-control" placeholder="Ville"/>
-                                        <script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
-                                        <script>
-                                        (function() {
-                                        var placesAutocomplete = places({
-                                            container: document.querySelector('#city'),
-                                            type: 'city',
-                                            aroundLatLngViaIP: false,
-                                            templates: {
-                                            value: function(suggestion) {
-                                                return suggestion.name;
-                                            }
-                                            } 
-                                        });
-                                        })();
-                                        </script>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="material-icons">mail</i>
-                                    <input id="mail" name="email" type="email" class="validate">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mot de Passe</td>
-                                <td>
-                                    <input id="password" name="password1" type="password" class="validate">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Confirmation</td>
-                                <td>
-                                    <input id="password" name="password2" type="password" class="validate">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button id="ins_submit_btn" class="btn purple darken-3" type="submit">valider</button>
-                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/login.php" id="ins_canc_btn" class="ml-1 btn red">annuler</a>
-                </form>
-            </div>
+        <h4>Inscription</h4>
+        <div class="row">
+            <form action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Modules/TraitementInscription.php" method="POST" class="col s12">
+                <i class="material-icons prefix">account_box</i>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input name="nom" id="nom icon_prefix" type="text" class="validate" placeholder="Nom">
+                    </div>
+                    <div class="input-field col s6">
+                        <input name="prenom" id="prenom" type="text" class="validate" placeholder="Prénom">
+                    </div>
+                </div>
+                <i class="material-icons prefix">location_city</i>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="search" id="city" name="ville" class="form-control" placeholder="Ville"/>
+                        <script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
+                        <script>
+                        (function() {
+                            var placesAutocomplete = places({
+                                container: document.querySelector('#city'),
+                                type: 'city',
+                                aroundLatLngViaIP: false,
+                                templates: {
+                                value: function(suggestion) {
+                                    return suggestion.name;
+                                }
+                                } 
+                            });
+                        })();
+                        </script>
+                    </div>   
+                </div>
+                <i class="material-icons prefix">mail</i>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="mail" name="email" type="email" class="validate" placeholder="Email">    
+                    </div>
+                </div>
+                <i class="material-icons prefix">lock</i>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input id="password" name="password1" type="password" class="validate" placeholder="Mot de passe">
+                    <input id="password" name="password2" type="password" class="validate" placeholder="Confirmation mot de passe">
+                    </div>
+                </div>
+                <button id="ins_submit_btn" class="btn purple darken-3" type="submit">valider</button>
+                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/login.php" id="ins_canc_btn" class="ml-1 btn red">annuler</a>
+            </form>
         </div>
     </div>
 </body>

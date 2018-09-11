@@ -12,7 +12,7 @@ h4 {
     font-family: Oswald, sans-serif;
     font-weight: 700;
     font-size: 20px;
-    color: #6e2996;
+    color: #333333;
     text-transform: uppercase;
     text-align: center;
 }
@@ -214,9 +214,6 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 /*_________________________ INSCRIPTION _________________________*/
 
-.inscription {
-    padding-bottom: 50px;
-}
 #ins_submit_btn {
     position: absolute;
     left: 10px;
@@ -225,4 +222,12 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 #ins_canc_btn {
     position: absolute;
     right: 10px;
+}
+
+.material-icons.prefix {
+    color: #6e2996;
+}
+
+.inscription {
+    padding-bottom: 50px;
 }
