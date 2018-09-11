@@ -1,4 +1,7 @@
 <?php
+
+namespace evender;
+
 class config{
     const SERVERNAME="localhost";
     const DBNAME="evender";

@@ -2,11 +2,11 @@
 
 namespace evender;
 
-use Includes/config.php;
+use config;
 
 class Chat {
 
-    $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
+    public $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
 
     public function delete_event($id_event){
 
