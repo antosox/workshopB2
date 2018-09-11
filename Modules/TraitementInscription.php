@@ -1,5 +1,6 @@
 <?php
 
+namespace evender;
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
 
