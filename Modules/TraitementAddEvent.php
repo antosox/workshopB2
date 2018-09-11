@@ -1,21 +1,29 @@
 <?php
 
-namespace evender;
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
-echo 'nop';
+
+session_start();
 var_dump($_POST);
+
+
 if (isset($_POST) && isset($_POST['title_event']) && isset($_POST['type']) && isset($_POST['date']) && isset($_POST['address_event']) && isset($_POST['desc'])) {
+echo 'pass';
+$_POST['time']  = date("H:i", strtotime($_POST['time']));
+$_POST['date'] = str_replace('/', '-', $_POST['date']);
+$_POST['date'] = date('Y-m-d', strtotime($_POST['date']));
+$_POST['date'] = $_POST['date'] . ' ' . $_POST['time'];
 	
     $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
-    $req = $db->prepare("INSERT INTO `event` ( `local_event`, `Date`, `description`, `title`, `type`) values ( :adresse, :DateEvent, :descrip, :title, :typeEvent)");
-    $req->bindValue('adresse', $_POST['address_event']);
-    $req->bindValue(':DateEvent', $_POST['date']);
+    $req = $db->prepare("INSERT INTO `event` ( `local_event`, `Date`, `nbr_user`, `description`, `title`, `type`) values ( :adresse, :DateEvent, :nbr , :descrip, :title, :typeEvent)");
+    $req->bindValue(':adresse', $_POST['address_event']);
+	$req->bindValue(':DateEvent', $_POST['date']);
+	$req->bindValue(':nbr', '1');
     $req->bindValue(':descrip', $_POST['desc']);
     $req->bindValue(':title', $_POST['title_event']);
     $req->bindValue(':typeEvent', $_POST['type']);
 	$req->execute();
-
+var_dump($_POST);
 	$target_dir = $_SERVER['DOCUMENT_ROOT']  . "/Assets/Events/";
 
 	$target_file = $target_dir . basename($_FILES["EventImage"]["name"]);
@@ -64,12 +72,22 @@ if (isset($_POST) && isset($_POST['title_event']) && isset($_POST['type']) && is
 	
 	} else {
 
-		$filename = $db->lastinsertid();
+		$eventid = $db->lastinsertid();
+		$ext = $ext[1];
+		if (move_uploaded_file($_FILES['EventImage']['tmp_name'], $target_dir . $eventid . $ext)) {
 
-		if (move_uploaded_file($_FILES['EventImage']['tmp_name'], $target_dir . $filename . "." . $ext[1])) {
-
-			$req = $db->prepare("UPDATE `event` SET `image` = '$filename . "." . $ext' WHERE id_event = $filename");
+			$req = $db->prepare("UPDATE `event` SET `image` = '$eventid.$ext' WHERE id_event = $eventid");
 			$req->execute();
+
+			$req = $db->prepare("INSERT INTO `event_users` (`id_event`, `id_user`, `Admin`) VALUES ( :idevent, :iduser, :adminval)");
+			$req->bindValue(':idevent', $eventid);
+			$req->bindValue(':iduser', $_SESSION['user']['id']);
+			$req->bindValue(':adminval', 1);
+			$req->execute();
+			var_dump($_SESSION['user']['id']);
+			var_dump($eventid);
+
+
 
 			echo "\nLe fichier " . basename($_FILES["EventImage"]["name"]) . " a été envoyé ! Redirection en cours...";
 		

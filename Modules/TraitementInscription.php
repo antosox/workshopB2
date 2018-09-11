@@ -1,6 +1,6 @@
 <?php
 
-namespace evender;
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
 
@@ -39,7 +39,7 @@ if (isset($_POST)) {
         $req->bindValue(':nom', $nom);
         $req->bindValue(':Prenom', $prenom);
         $req->bindValue(':Email', $email); 
-        $req->bindValue(':MDP', hash('sha256', $password1));
+        $req->bindValue(':MDP', hash('sha1', $password1));
         $req->bindValue(':ville', $verification['id']);
         $req->execute();  
         header('location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');

@@ -1,5 +1,5 @@
 <?php 
-    namespace evender;
+    
     // load or reload a session ! have to be the first line
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     session_start();
@@ -10,7 +10,7 @@
     $erreur = false;
 
     if(isset($_POST) && isset($_POST['login']) && isset($_POST['password'])) {
-
+        $_POST['password'] =  hash('sha1', $_POST['password']);
         sleep(1);
 $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
 $statement = $db->prepare("SELECT * FROM user  WHERE Email = :email");
@@ -38,6 +38,7 @@ if ($answer['password'] != $_POST['password']) {
             
             // mot de passe incorect ou erreur
 
+            var_dump($_POST['password']);
             $erreur = true;
             
         }
