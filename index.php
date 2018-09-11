@@ -41,38 +41,33 @@
           <div class="tinder--card">
             <img src="Assets/tsn.jpg">
             <div class="infos">
-                    <h2>Bowling</h2>
-                    <p>12/09/2018</p>
-                    <p>Nantes</p>
-                </div>
-                <div class="nb-persons">
-                    <img src="img/nb-person.svg" alt="">
-                    <p>8</p>
-                </div>
+                <h2>Bowling</h2>
+                <p>12/09/2018</p>
+                <p>Nantes</p>
+            </div>
+            <div class="nb-persons">
+                <img src="img/nb-person.svg" alt="">
+                <p>8</p>
+            </div>
             <div class="admin-organizer">
-                    <p>Alexis</p>
+                <p>Alexis</p>
             </div>
                 <div class="medal-organizer">
-                    <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal" >
-                    <img src="img/medals/medal-ambiance.png" alt="medal-ambiance" class="medal" >
+                    <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal">
+                    <img src="img/medals/medal-ambiance.png" alt="medal-ambiance" class="medal">
                     <img src="img/medals/medal-price.png" alt="medal-price" class="medal" >
-                    <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal" >
+                    <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal">
                 </div>
                 <div class="description">
-             <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
+                    <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
         <div class="tinder--buttons">
           <button id="nope"><i class="fa fa-remove"></i></button>
           <button id="love"><i class="fa fa-check"></i></button>
         </div>
- </div>
-
-
-
-
-            
+ </div>     
         </main>
         <footer>
             <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>

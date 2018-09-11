@@ -32,29 +32,25 @@ a {
 .btn-add_event, 
 .btn-off,
 .btn-flat:focus {
-    width: 80px;
+    width: 65px;
     background-color: transparent;
     border: none;
 }
 
 .btn-add_event {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
 }
 
 .btn-off {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 0;
 }
 
-.logo {
-    margin-top: 70px;
-}
-
-.illustration {
-    max-width: 100%;
+.logo img {
+    width: 60%;
 }
 
 .infos {
@@ -64,7 +60,7 @@ a {
 
 .infos h2, .infos p {
     font-family: Oswald, sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     display: inline;
 }
@@ -85,11 +81,12 @@ a {
     font-weight: 700;
     display: inline-block;
     margin: 0;
+    padding: 0;
+    font-size: 14px;
+    vertical-align: top;
 }
 
 .admin-organizer {
-    padding-left: 5px;
-    margin-top: 30px;
     width: 20%;
 }
 
@@ -100,12 +97,11 @@ a {
 
 .admin-organizer, .medal-organizer {
     display: inline-block;
-    vertical-align: middle;
 }
 
 .admin-organizer p {
     font-family: Oswald, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -139,9 +135,6 @@ footer > a {
     text-align: center;
 }
 
-footer {
-   margin-top: 100px;
-}
 
 
 /*__________________________________ ADD EVENT __________________________________*/
@@ -255,33 +248,34 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 /*_____________________________ CHAT _____________________________*/
 
 .top img {
-    width: 30px;
+    width: 22px;
 }
 
 .top {
     position: relative;
     background-color: #eeeeee;
-    padding: 15px;
+    padding: 5px;
 }
 
 .top h2 {
     font-family: Oswald, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     text-transform: uppercase;
     text-align: center;
     color: #ef5a20;
+    margin: 0;
 }
 
 .top .mail {
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: 5px;
 }
 
 .top .trash {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 5px;
 }
 
 .sender h3, .receiver h3 {
@@ -309,6 +303,7 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 }
 
 .plane-send {
+    display: inline-block;
     background-image: url("../img/send.png");
     border: none;
     color: transparent;
@@ -316,6 +311,7 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    height: 30px;
 }
 
 .plane-send:focus {
