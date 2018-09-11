@@ -43,6 +43,12 @@ td {
     text-align: center
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 footer > a {
     font-family: Oswald, sans-serif;
     font-weight: 700;
@@ -164,6 +170,26 @@ img.medal {
 }
 
 /*__________________________________ ADD EVENT __________________________________*/
+
+.menu {
+    background-color: #333333;
+    text-align: center;
+    padding: 3px 0;
+    width: 55%;
+    border-radius: 5px;
+    margin: 0 auto 20px;
+}
+
+.menu a {
+    color: #eeeeee;
+    margin: 0 5px;
+}
+
+.menu a.active {
+    color: #eeeeee;
+    font-weight: 700;
+    margin: 0 10px;
+}
 
 form p {
     text-align: center;
@@ -338,7 +364,7 @@ input#message {
 
 .message-container {
     position: relative;
-    height: 60px;
+    height: 100px;
 }
 
 .message {

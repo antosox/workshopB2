@@ -40,42 +40,48 @@ $chat = new Addon_chat();
         </div>
     </header>
     <main>
-        <div class="top">
-            <a href="mailto:" class="mail">
-                <img src="img/mail.png" alt="mail">
-            </a>
-            <h2 class="title-event">
-            <?php $title = $chat->event_name($id_event); 
-            echo($title['title']);?></h2>
+        <div class="menu">
+            <a href="#" class="staff-link">Staff</a>
+            <a href="#" class="gen-link active">Général</a>
+        </div>
+        <div class="chat-container">
+            <div class="top">
+                <a href="mailto:" class="mail">
+                    <img src="img/mail.png" alt="mail">
+                </a>
+                <h2 class="title-event">
+                <?php $title = $chat->event_name($id_event); 
+                echo($title['title']);?></h2>
+                <?php 
+                if(!empty($chat->is_event_admin($id_user, $id_event))){ ?>
+                <a href="" class="trash">
+                    <img src="img/delete.png" alt="delete">
+                </a><?php } ?>
+            </div>
+            <section class="space-chat">
             <?php 
-            if(!empty($chat->is_event_admin($id_user, $id_event))){ ?>
-            <a href="" class="trash">
-                <img src="img/delete.png" alt="delete">
-            </a><?php } ?>
-        </div>
-        <section class="space-chat">
-        <?php 
-            $nbr_chat = $chat->nbr_message($id_chat);
-        ?>
-            <div class="sender">
-                <h3>pseudo</h3>
-                <p>blablablalablablabla</p>
+                $nbr_chat = $chat->nbr_message($id_chat);
+            ?>
+                <div class="sender">
+                    <h3>pseudo</h3>
+                    <p>blablablalablablabla</p>
+                </div>
+                <div class="receiver">
+                    <h3>pseudo</h3>
+                    <p>blablablalablablabla</p>
+                </div>
+            </section>
+            <form action="">
+            <div class="message-container">
+                <div class="input-field col s12 message">
+                    <input type="text" name="message" id="message" placeholder="Ecrire son message">
+                </div>   
+                <div class="input-field col s12 message-send">
+                    <input class="plane-send" onclick="submit()" value="Envoyer">  
+                </div>       
             </div>
-            <div class="receiver">
-                <h3>pseudo</h3>
-                <p>blablablalablablabla</p>
-            </div>
-        </section>
-        <form action="">
-        <div class="message-container">
-            <div class="input-field col s12 message">
-                <input type="text" name="message" id="message" placeholder="Ecrire son message">
-            </div>   
-            <div class="input-field col s12 message-send">
-                <input class="plane-send" onclick="submit()" value="Envoyer">  
-            </div>       
+            </form>
         </div>
-        </form>
     </main>
     <footer>
         <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
