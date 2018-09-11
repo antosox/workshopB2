@@ -5,21 +5,10 @@ $(document).ready(function(){
     
 });
 
-$(document).ready(function(){
-    $('.timepicker').timepicker({
-        default: 'now',
-        twelvehour: false, 
-        donetext: 'OK',
-        format: "HH:ii:SS",
-        autoclose: false,
-        vibrate: true
-    });
-});
 
-$('.timepicker').on('change', function() {
-    let receivedVal = $(this).val();
-    $(this).val(receivedVal + ":00");
-});
+$(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
 
 
 document.addEventListener('DOMContentLoaded', function() {
