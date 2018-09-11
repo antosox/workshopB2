@@ -70,13 +70,19 @@ $chat = new Addon_chat();
         <div class="input-field col s12">
             <input type="text" name="message" id="message" placeholder="Ecrire son message">
 <<<<<<< HEAD
+<<<<<<< HEAD
         </div>            
         <input class="plane-send" type="submit" value="Envoyer">
 =======
+=======
+>>>>>>> master
         </div>
         <div class="input-field col s12">
             <input class="plane-send" onclick="submit()" value="Envoyer">
         </div> 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
         </form>
     </main>
