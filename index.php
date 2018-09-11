@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Css/choice.css">
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
     <title>Evender</title>
@@ -33,9 +36,16 @@
             </div>
         </header>
         <main>
-            <section class="event">
-                <img src="img/events/bowling.jpg" alt="event" class="illustration">
-                <div class="infos">
+<div class="tinder">
+            <div class="tinder--status">
+          <i class="fa fa-remove"></i>
+          <i class="fa fa-check"></i>
+            </div>
+
+<div class="tinder--cards">
+          <div class="tinder--card">
+            <img src="Assets/tsn.jpg">
+            <div class="infos">
                     <h2>Bowling</h2>
                     <p>12/09/2018</p>
                     <p>Nantes</p>
@@ -44,9 +54,9 @@
                     <img src="img/nb-person.svg" alt="">
                     <p>8</p>
                 </div>
-                <div class="admin-organizer">
+            <div class="admin-organizer">
                     <p>Alexis</p>
-                </div>
+            </div>
                 <div class="medal-organizer">
                     <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal" >
                     <img src="img/medals/medal-ambiance.png" alt="medal-ambiance" class="medal" >
@@ -54,17 +64,20 @@
                     <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal" >
                 </div>
                 <div class="description">
-                    <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
-                </div>
-            </section>
-            <section>
-                <button class="validate btn-flat">
-                    <img src="img/validate.svg" alt="validate">
-                </button>
-                <button class="eject btn-flat">
-                    <img src="img/eject.svg" alt="eject">
-                </button>
-            </section>
+             <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tinder--buttons">
+          <button id="nope"><i class="fa fa-remove"></i></button>
+          <button id="love"><i class="fa fa-check"></i></button>
+        </div>
+ </div>
+
+
+
+
+            
         </main>
         <footer>
             <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
@@ -103,4 +116,6 @@
         </footer>
     </body>
     <script src="js/script.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
+      <script type="text/javascript" src="js/slide.js"></script>
 </html>
