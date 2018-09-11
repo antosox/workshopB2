@@ -8,6 +8,20 @@ h1 {
     text-align: center;
 }
 
+h4 {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #6e2996;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+td {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+}
+
 /*____________________________________ INDEX ____________________________________*/
 
 .btn-add_event, 
@@ -95,14 +109,13 @@ img.medal {
 }
 
 .description {
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 .description p {
     text-align: justify;
-    font-family: Montserra, sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
-    font-weight: bold;
 }
 
 .validate, .eject {
