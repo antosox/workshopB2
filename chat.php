@@ -1,8 +1,6 @@
 <?php
     namespace evender;
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -55,13 +53,17 @@
             </div>
         </section>
         <form action="">
+        <div class="input-field col s12">
             <input type="text" name="message" id="message" placeholder="Ecrire son message">
+        </div>
+        <div class="input-field col s12">
             <input class="plane-send" type="submit" value="Envoyer">
+        </div> 
         </form>
     </main>
     <footer>
         <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
-            <!-- Modal Structure -->
+        <!-- Modal Structure -->
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
                 <h4>Mes évènements</h4>
