@@ -1,9 +1,24 @@
 $(document).ready(function(){
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+    });
+    
 });
 
 $(document).ready(function(){
-    $('.timepicker').timepicker();
+    $('.timepicker').timepicker({
+        default: 'now',
+        twelvehour: false, 
+        donetext: 'OK',
+        format: "HH:ii:SS",
+        autoclose: false,
+        vibrate: true
+    });
+});
+
+$('.timepicker').on('change', function() {
+    let receivedVal = $(this).val();
+    $(this).val(receivedVal + ":00");
 });
 
 
