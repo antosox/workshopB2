@@ -1,5 +1,5 @@
 <?php 
-
+    namespace evender;
     // load or reload a session ! have to be the first line
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     session_start();
