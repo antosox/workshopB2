@@ -294,7 +294,8 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     text-transform: uppercase;
 }
 
-.sender p, .receiver p {
+.sender p, 
+.receiver p {
     font-family: Roboto, sans-serif;
     color: #333333;
 }

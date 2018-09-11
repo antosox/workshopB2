@@ -56,7 +56,7 @@
         </section>
         <form action="">
             <input type="text" name="message" id="message" placeholder="Ecrire son message">
-            <input type="submit" value="Envoyer">
+            <input class="plane-send" type="submit" value="Envoyer">
         </form>
     </main>
     <footer>
