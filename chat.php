@@ -1,5 +1,12 @@
 <?php
-    namespace evender;
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
+
+$chat = new Addon_chat();
+
+    $id_user = $_SESSION['user']['id'] = '10';
+    $id_chat = $_SESSION['chat']['id'] = '10';
+    $id_event = $_SESSION['event']['id'] = '10';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,12 +44,19 @@
             <a href="mailto:" class="mail">
                 <img src="img/mail.png" alt="mail">
             </a>
-            <h2 class="title-event">Bowling</h2>
+            <h2 class="title-event">
+            <?php $title = $chat->event_name($id_event); 
+            echo($title['title']);
+            ?></h2>
+            <?php if($chat->is_event_admin($id_chat, $id_user, $id_event)){ ?>
             <a href="" class="trash">
                 <img src="img/delete.png" alt="delete">
-            </a>
+            </a><?php } ?>
         </div>
         <section class="space-chat">
+        <?php 
+
+        ?>
             <div class="sender">
                 <h3>pseudo</h3>
                 <p>blablablalablablabla</p>

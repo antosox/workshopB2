@@ -1,19 +1,18 @@
 <?php
 
-namespace evender;
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
-//include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
-use evender\config;
-use \PDO;
+class Addon_chat {
+    
+    private $db;
 
-class Chat {
-
-    public function createPDO(){
-           $this->db = new PDO('mysql:host=localhost;dbname=evender', 'root', '');
+    public function __construct() {
+         $this->db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
     }
-    public function delete_event($id_event){
 
+    public function delete_event($id_event){
+        
         $delete = $this->db->prepare("DELETE FROM `event` WHERE id_event = '$id_event'");
         $delete->execute();
     }
@@ -76,13 +75,20 @@ class Chat {
     }
 
     public function is_event_admin($id_chat, $id_user, $id_event){
-
+        
         $admin = $this->db->prepare("SELECT `id_channel`, `id_admin`, `id_event` FROM staff WHERE `id_channel` = :id_chat, `id_admin` = $id_user, `id_event` = :id_event");
         $admin->bindparam(':id_chat', $id_chat);
         $admin->bindparam(':id_event', $id_event);
         $admin->execute();
         return $is_admin = $admin->fetchAll();
-    
+    }
+
+    public function event_name($id_event){
+
+        $name = $this->db->prepare("SELECT `title` FROM event WHERE `id_event` = :id_event");
+        $name->bindparam(':id_event', $id_event);
+        $name->execute();
+        return $title = $name->fetch();
     }
 
 }

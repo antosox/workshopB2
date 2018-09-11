@@ -1,6 +1,5 @@
 <?php
 
-namespace evender;
 
 class config{
     const SERVERNAME="localhost";
