@@ -35,7 +35,7 @@ class Addon_chat {
 
     public function other_message($id_user, $id_chat){
 
-        $message = $this->db->prepare("SELECT `message_user` FROM messages_users WHERE `id_chat` = :id_chat AND `id_user` <> '$id_user'");
+        $message = $this->db->prepare("SELECT `message_user` FROM messages_users WHERE `id_chat` = :id_chat AND `id_user` <> '$id_user' ORDER BY id_message DESC");
         $message->bindparam(':id_chat', $id_chat);
         $message->execute();
         return $other_message = $message->fetchAll();
