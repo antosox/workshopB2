@@ -86,15 +86,28 @@ var_dump($_POST);
 			$req->bindValue(':adminval', 1);
 			$req->execute();
 
-			$req = $db->prepare("INSERT INTO `channels` (`id_event`, `id_channel`) VALUES ( :idevent, :idchan )");
-			$req->bindValue(':idevent', $eventid);
-			$req->bindValue(':idchan', 1);
+			$req = $db->prepare("INSERT INTO `channel` (`etat`) VALUES ( :etat )");
+			$req->bindValue(':etat', 0);
 			$req->execute();
 
-			$req = $db->prepare("INSERT INTO `channels` (`id_event`, `id_channel`) VALUES ( :idevent, :idchan )");
+			$idchan = $db->lastInsertId();
+			var_dump($idchan);
+			$req = $db->prepare("INSERT INTO `events_channels` (`id_event`,`id_channel` ) VALUES ( :idevent, :idchan)");
 			$req->bindValue(':idevent', $eventid);
-			$req->bindValue(':idchan', 2);
+			$req->bindValue(':idchan', $idchan);
 			$req->execute();
+
+			$req = $db->prepare("INSERT INTO `channel`( `etat`) VALUES (:etat )");
+			$req->bindValue(':etat', 1);
+			$req->execute();
+
+			$idchan = $db->lastInsertId();
+			var_dump($idchan);
+			$req = $db->prepare("INSERT INTO `events_channels` (`id_event`,`id_channel` ) VALUES ( :idevent, :idchan)");
+			$req->bindValue(':idevent', $eventid);
+			$req->bindValue(':idchan', $idchan);
+			$req->execute();
+
 
 
 
