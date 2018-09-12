@@ -78,8 +78,6 @@ var_dump($_POST);
 			$req = $db->prepare("UPDATE `event` SET `image` = '$eventid.$ext' WHERE id_event = $eventid");
 			$req->execute();
 
-		
-
 			$req = $db->prepare("INSERT INTO `event_users` (`id_event`, `id_user`, `Admin`) VALUES ( :idevent, :iduser, :adminval)");
 			$req->bindValue(':idevent', $eventid);
 			$req->bindValue(':iduser', $_SESSION['user']['id']);
@@ -92,6 +90,7 @@ var_dump($_POST);
 
 			$idchan = $db->lastInsertId();
 			var_dump($idchan);
+
 			$req = $db->prepare("INSERT INTO `events_channels` (`id_event`,`id_channel` ) VALUES ( :idevent, :idchan)");
 			$req->bindValue(':idevent', $eventid);
 			$req->bindValue(':idchan', $idchan);
@@ -124,3 +123,4 @@ var_dump($_POST);
 	
 
 }
+header('location: http://' . $_SERVER['HTTP_HOST'] . '/index.php');
