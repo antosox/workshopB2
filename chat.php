@@ -81,14 +81,6 @@ $chat = new Addon_chat();
                 </div>       
             </div>
         </section>
-        <form action="">
-        <div class="input-field col s12">
-            <input type="text" name="message" id="message" placeholder="Ecrire son message">
-        </div>
-        <div class="input-field col s12">
-            <input class="plane-send" onclick="submit()" value="Envoyer">
-        </div> 
-        </form>
     </main>
     <footer>
         <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
