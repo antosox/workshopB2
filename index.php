@@ -7,17 +7,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <!-- Feuilles CSS -->
     <link rel="stylesheet" href="css/choice.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">  
+    <script src="js/countdown.js"></script>   
     <title>Evender</title>
 </head>
     <body>
@@ -42,34 +44,37 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
             </div>
 
 <?php
-
+   
  $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
  $req = $db->prepare("SELECT * FROM event");
  $req->execute();
  $events = $req->fetchAll();
 
  foreach($events as $event) {
+    
+    $event['Date'] = date("d/m/y G:i", strtotime($event['Date']));
 
-    $total = $db->prepare("SELECT count(*) total FROM event_users where id_event = :id ");
+    $total = $db->prepare("SELECT COUNT(*) total FROM event_users where id_event = :id");
     $total->bindValue(':id', $event['id_event']);
+    $total->execute();
     $nbr = $total->fetch();
-var_dump($event['id_event'],$nbr['total']);
-    $admin = $db->prepare("SELECT * from event_users eu JOIN event e
+
+    $admin = $db->prepare("SELECT u.id_user,u.firstname,u.name from event_users eu JOIN event e
     on e.id_event = eu.id_event
     JOIN user u
     on u.id_user = eu.id_user
-    where eu.id_event = :id AND eu.Admin = :isadmin
-    ");
+    where eu.id_event = :id AND eu.Admin = :isadmin");
     $admin->bindValue(':id', $event['id_event'] );
     $admin->bindValue(':isadmin', 1);
-    $admin = $req->fetch();
+    $admin->execute();
+    $adm = $admin->fetch();
 
     echo '<div class="tinder--cards">
           <div class="tinder--card">
             <img src="Assets/Events/'.$event['image'].'">
             <div class="infos">
                 <h2>'.$event['title'].'</h2>
-                <h2>'.$event['id_event'].'</h2>
+               
                 <p>'.$event['Date'].'</p>
                 <p>'.$event['local_event'].'</p>
             </div>
@@ -78,7 +83,7 @@ var_dump($event['id_event'],$nbr['total']);
                 <p>'.$nbr['total'].'</p>
             </div>
             <div class="admin-organizer">
-                <p>'.$admin['firstname'].' '.$admin['name'].'</p>
+                <p>'.$adm['firstname'].' '.$adm['name'].'</p>
             </div>
                 <div class="medal-organizer">
                     <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal">
@@ -88,8 +93,13 @@ var_dump($event['id_event'],$nbr['total']);
                 </div>
 
                 <div class="description">'.
+                
                   $event['description'].
                 '</div>
+                <div class="countdown">
+                    <div class="date deadline">2018-09-12 13:30:00.0000</div>
+                    <div class="count"></div>
+                </div>
             </div>';
  }
             ?>
@@ -148,5 +158,5 @@ var_dump($event['id_event'],$nbr['total']);
     </body>
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
-      <script type="text/javascript" src="js/slide.js"></script>
+    <script type="text/javascript" src="js/slide.js"></script>
 </html>

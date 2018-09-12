@@ -3,6 +3,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 
 session_start();
+var_dump($_SESSION);
 var_dump($_POST);
 
 
@@ -77,13 +78,36 @@ var_dump($_POST);
 			$req = $db->prepare("UPDATE `event` SET `image` = '$eventid.$ext' WHERE id_event = $eventid");
 			$req->execute();
 
+		
+
 			$req = $db->prepare("INSERT INTO `event_users` (`id_event`, `id_user`, `Admin`) VALUES ( :idevent, :iduser, :adminval)");
 			$req->bindValue(':idevent', $eventid);
 			$req->bindValue(':iduser', $_SESSION['user']['id']);
 			$req->bindValue(':adminval', 1);
 			$req->execute();
-			var_dump($_SESSION['user']['id']);
-			var_dump($eventid);
+
+			$req = $db->prepare("INSERT INTO `channel` (`etat`) VALUES ( :etat )");
+			$req->bindValue(':etat', 0);
+			$req->execute();
+
+			$idchan = $db->lastInsertId();
+			var_dump($idchan);
+			$req = $db->prepare("INSERT INTO `events_channels` (`id_event`,`id_channel` ) VALUES ( :idevent, :idchan)");
+			$req->bindValue(':idevent', $eventid);
+			$req->bindValue(':idchan', $idchan);
+			$req->execute();
+
+			$req = $db->prepare("INSERT INTO `channel`( `etat`) VALUES (:etat )");
+			$req->bindValue(':etat', 1);
+			$req->execute();
+
+			$idchan = $db->lastInsertId();
+			var_dump($idchan);
+			$req = $db->prepare("INSERT INTO `events_channels` (`id_event`,`id_channel` ) VALUES ( :idevent, :idchan)");
+			$req->bindValue(':idevent', $eventid);
+			$req->bindValue(':idchan', $idchan);
+			$req->execute();
+
 
 
 

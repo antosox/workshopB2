@@ -41,8 +41,8 @@ $chat = new Addon_chat();
     </header>
     <main>
         <div class="menu">
-            <a href="#" class="staff-link">Annonces</a>
-            <a href="#" class="gen-link active">Discussions</a>
+            <a href="chat-staff.php" class="staff-link">Annonces</a>
+            <a href="chat.php" class="gen-link active">Discussions</a>
         </div>
         <div class="chat-container">
             <div class="top">
@@ -180,6 +180,5 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
-
         </script>
 </html>
