@@ -28,6 +28,52 @@
             </h1>
         </div>
     </header>
+    <footer>
+        <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Mes évènements</h4>
+                    <table class="striped">
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </footer>
 </body>
 
 </html>
