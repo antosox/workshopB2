@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 $chat = new Addon_chat();
 
     $id_user = $_SESSION['user']['id'] = '9';
-    $id_chat = $_SESSION['chat']['id'] = '10';
+    $id_chat = $_SESSION['chat']['id'] = '2';
     $id_event = $_SESSION['event']['id'] = '11';
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,17 @@ $chat = new Addon_chat();
             <section id="space-chat">
                 <div id="reponse_ws">
                 <?php 
-                $nbr_chat = $chat->nbr_message($id_chat);
+            $nbr_chat = $chat->nbr_message($id_chat);
+            $nbr_chat = $nbr_chat[COUNT(`message`)];
+            echo($nbr_chat);
+                if($nbr_chat > 0){
+                    $all_message = $chat->all_user_message($id_chat);
+                    for($i = 0; $i < $nbr_chat; $i++){
+                        foreach($all_message as $message){
+                            echo($message);
+                        }
+                    }
+                }
             ?>
                     <div class="sender">
                         <h3>pseudo</h3>
@@ -170,5 +180,6 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
+
         </script>
 </html>
