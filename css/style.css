@@ -428,3 +428,16 @@ input#message {
 #space-chat {
     min-height: 120px;
 }
+
+
+/*____________________ COUNTDOW ____________________*/
+
+.deadline {
+    display: none;
+}
+
+.count {
+    font-family: Oswald, sans-serif;
+    color: red;
+}
+

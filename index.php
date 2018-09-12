@@ -7,17 +7,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
-<link rel="stylesheet" href="css/choice.css">
+    <!-- Feuilles CSS -->
+    <link rel="stylesheet" href="css/choice.css">
     <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">  
+    <script src="js/countdown.js"></script>   
     <title>Evender</title>
 </head>
     <body>
@@ -94,6 +96,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
                 
                   $event['description'].
                 '</div>
+                <div class="countdown">
+                    <div class="date deadline">2018-09-12 13:30:00.0000</div>
+                    <div class="count"></div>
+                </div>
             </div>';
  }
             ?>
@@ -152,5 +158,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     </body>
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
-      <script type="text/javascript" src="js/slide.js"></script>
+    <script type="text/javascript" src="js/slide.js"></script>
 </html>
