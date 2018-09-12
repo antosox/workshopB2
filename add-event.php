@@ -31,8 +31,7 @@
                   </div>
                 </div>
                 <div class="input-field col s6">
-                  <input id="title_event" name="title_event" type="text" class="validate">
-                  <label for="title_event" class="text-orange text-darken-3">Titre de l'évènement</label>
+                  <input id="title_event" name="title_event" type="text" class="validate" placeholder="Titre de l'évènement">
                 </div>
                 <div class="input-field col s6">
                   <select name="type">
