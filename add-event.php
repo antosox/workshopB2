@@ -56,6 +56,9 @@
                 <div class="input-field col s6">
                   <input type="text" name="address_event" id="address_event" placeholder="Adresse"> 
                </div>
+               <p>
+                 <img src="img/description.png" alt="description" class="img-form-event">
+               </p>
                <div class="input-field col s6">
                   <input id="desc" name="desc" type="text" class="validate" placeholder="Description">
                </div>
