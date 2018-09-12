@@ -14,10 +14,9 @@ $_POST['date'] = date('Y-m-d', strtotime($_POST['date']));
 $_POST['date'] = $_POST['date'] . ' ' . $_POST['time'];
 	
     $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
-    $req = $db->prepare("INSERT INTO `event` ( `local_event`, `Date`, `nbr_user`, `description`, `title`, `type`) values ( :adresse, :DateEvent, :nbr , :descrip, :title, :typeEvent)");
+    $req = $db->prepare("INSERT INTO `event` ( `local_event`, `Date`, `description`, `title`, `type`) values ( :adresse, :DateEvent,  :descrip, :title, :typeEvent)");
     $req->bindValue(':adresse', $_POST['address_event']);
 	$req->bindValue(':DateEvent', $_POST['date']);
-	$req->bindValue(':nbr', '1');
     $req->bindValue(':descrip', $_POST['desc']);
     $req->bindValue(':title', $_POST['title_event']);
     $req->bindValue(':typeEvent', $_POST['type']);
@@ -73,7 +72,7 @@ var_dump($_POST);
 
 		$eventid = $db->lastinsertid();
 		$ext = $ext[1];
-		if (move_uploaded_file($_FILES['EventImage']['tmp_name'], $target_dir . $eventid . $ext)) {
+		if (move_uploaded_file($_FILES['EventImage']['tmp_name'], $target_dir . $eventid .'.'. $ext)) {
 
 			$req = $db->prepare("UPDATE `event` SET `image` = '$eventid.$ext' WHERE id_event = $eventid");
 			$req->execute();

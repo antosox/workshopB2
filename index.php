@@ -1,3 +1,6 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,20 +41,44 @@
           <i class="fa fa-check"></i>
             </div>
 
-<div class="tinder--cards">
+<?php
+
+ $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
+ $req = $db->prepare("SELECT * FROM event");
+ $req->execute();
+ $events = $req->fetchAll();
+
+ foreach($events as $event) {
+
+    $total = $db->prepare("SELECT count(*) total FROM event_users where id_event = :id ");
+    $total->bindValue(':id', $event['id_event']);
+    $nbr = $total->fetch();
+var_dump($event['id_event'],$nbr['total']);
+    $admin = $db->prepare("SELECT * from event_users eu JOIN event e
+    on e.id_event = eu.id_event
+    JOIN user u
+    on u.id_user = eu.id_user
+    where eu.id_event = :id AND eu.Admin = :isadmin
+    ");
+    $admin->bindValue(':id', $event['id_event'] );
+    $admin->bindValue(':isadmin', 1);
+    $admin = $req->fetch();
+
+    echo '<div class="tinder--cards">
           <div class="tinder--card">
-            <img src="Assets/tsn.jpg">
+            <img src="Assets/Events/'.$event['image'].'">
             <div class="infos">
-                <h2>Bowling</h2>
-                <p>12/09/2018</p>
-                <p>Nantes</p>
+                <h2>'.$event['title'].'</h2>
+                <h2>'.$event['id_event'].'</h2>
+                <p>'.$event['Date'].'</p>
+                <p>'.$event['local_event'].'</p>
             </div>
             <div class="nb-persons">
                 <img src="img/nb-person.svg" alt="">
-                <p>8</p>
+                <p>'.$nbr['total'].'</p>
             </div>
             <div class="admin-organizer">
-                <p>Alexis</p>
+                <p>'.$admin['firstname'].' '.$admin['name'].'</p>
             </div>
                 <div class="medal-organizer">
                     <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal">
@@ -59,11 +86,13 @@
                     <img src="img/medals/medal-price.png" alt="medal-price" class="medal" >
                     <img src="img/medals/medal-quality.png" alt="medal-quality" class="medal">
                 </div>
-                <div class="description">
-                    <p>Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus.</p>
-                    </div>
-                </div>
-            </div>
+
+                <div class="description">'.
+                  $event['description'].
+                '</div>
+            </div>';
+ }
+            ?>
         <div class="tinder--buttons">
           <button id="nope"><i class="fa fa-remove"></i></button>
           <button id="love"><i class="fa fa-check"></i></button>
