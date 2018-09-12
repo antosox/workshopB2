@@ -44,7 +44,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
             </div>
 
 <?php
-   
+   session_start();
  $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
  $req = $db->prepare("SELECT * FROM event");
  $req->execute();
@@ -116,42 +116,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
                 <div class="modal-content">
                     <h4>Mes évènements</h4>
                     <table class="striped">
-                        <tr class="event-row">
+                        
+                            <?php
+                            $channels = $db->prepare("SELECT * From event_users eu join event e 
+                            on eu.id_event = e.id_event where id_user = :iduser");
+                            $channels->bindValue(':iduser', $_SESSION['user']['id']);
+                            $channels->execute();
+                            $participates = $channels->fetchAll();
+                            foreach($participates as $participate) {
+                            echo '
+                            <tr class="event-row">
                             <td>
-                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="title-event">'.$participate['title'].'</a>
                                 <a href="#" class="annonces">Annonces</a>
                                 <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                    </table>
+                                </td> 
+                                </tr>';
+                            }
+                            ?>
+
+                       
+                       </table>
                 </div>
             </div>
         </footer>
