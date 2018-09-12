@@ -30,8 +30,8 @@
     </header>
     <main>
         <div class="menu">
-            <a href="chat-staff.php" class="staff-link">Annonces</a>
-            <a href="chat.php" class="gen-link active">Discussions</a>
+            <a href="chat-staff.php" class="staff-link active">Annonces</a>
+            <a href="chat.php" class="gen-link">Discussions</a>
         </div>
         <div class="chat-container">
             <div class="top">

@@ -157,18 +157,16 @@ $chat = new Addon_chat();
             element.scrollTop = element.scrollHeight;
             }
 
-function submit() {
-
-            var msg = document.getElementById('message').value;
-            var chatroom = <?php echo $id_chat ?>;
-            var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
-            var data = {
-            message: msg,
-                    user: user,
-                    chatroom: chatroom,
-                    mine: 0};
-            ws.send(JSON.stringify(data));
-                
-        }
+            function submit() {
+                var msg = document.getElementById('message').value;
+                var chatroom = <?php echo $id_chat ?>;
+                var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
+                var data = {
+                message: msg,
+                        user: user,
+                        chatroom: chatroom,
+                        mine: 0};
+                ws.send(JSON.stringify(data));
+            }
         </script>
 </html>
