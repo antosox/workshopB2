@@ -28,6 +28,39 @@
             </h1>
         </div>
     </header>
+    <main>
+        <div class="menu">
+            <a href="#" class="staff-link">Annonces</a>
+            <a href="#" class="gen-link active">Discussions</a>
+        </div>
+        <div class="chat-container">
+            <div class="top">
+                <a href="mailto:" class="mail">
+                    <img src="img/mail.png" alt="mail">
+                </a>
+                <h2 class="title-event-staff">Titre de l'évènement</h2>
+                <a href="" class="trash">
+                    <img src="img/delete.png" alt="delete">
+                </a>
+            </div>
+            <section id="space-chat">
+                <!-- <div class="annonce-msg">
+                    <h3>pseudo</h3>
+                    <p>blablablalablablabla</p>
+                </div> -->
+            </section>
+            <form action="">
+            <div class="message-container">
+                <div class="input-field col s12 message">
+                    <input type="text" name="message" id="message" placeholder="Ecrire son message">
+                </div>   
+                <div class="input-field col s12 message-send">
+                    <input class="plane-send" onclick="submit()" value="Envoyer">  
+                </div>       
+            </div>
+            </form>
+        </div>
+    </main>
     <footer>
         <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
         <!-- Modal Structure -->
