@@ -375,7 +375,7 @@ input#message {
 
 .message-container {
     position: relative;
-    height: 100px;
+    height: 80px;
 }
 
 .message {
@@ -425,6 +425,6 @@ input#message {
     font-weight: bold;
 }
 
-.space-chat {
-    min-height: 130px;
+#space-chat {
+    min-height: 120px;
 }

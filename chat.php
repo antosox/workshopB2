@@ -41,8 +41,8 @@ $chat = new Addon_chat();
     </header>
     <main>
         <div class="menu">
-            <a href="#" class="staff-link">Annonces</a>
-            <a href="#" class="gen-link active">Discussions</a>
+            <a href="chat-staff.php" class="staff-link">Annonces</a>
+            <a href="chat.php" class="gen-link active">Discussions</a>
         </div>
         <div class="chat-container">
             <div class="top">
@@ -60,9 +60,9 @@ $chat = new Addon_chat();
             </div>
             <section id="space-chat">
                 <div id="reponse_ws">
-                <?php 
-                $nbr_chat = $chat->nbr_message($id_chat);
-            ?>
+                    <?php 
+                    $nbr_chat = $chat->nbr_message($id_chat);
+                    ?>
                     <div class="sender">
                         <h3>pseudo</h3>
                         <p>blablablalablablabla</p>

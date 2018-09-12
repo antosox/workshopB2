@@ -30,8 +30,8 @@
     </header>
     <main>
         <div class="menu">
-            <a href="#" class="staff-link">Annonces</a>
-            <a href="#" class="gen-link active">Discussions</a>
+            <a href="chat-staff.php" class="staff-link">Annonces</a>
+            <a href="chat.php" class="gen-link active">Discussions</a>
         </div>
         <div class="chat-container">
             <div class="top">
@@ -44,10 +44,12 @@
                 </a>
             </div>
             <section id="space-chat">
-                <!-- <div class="annonce-msg">
-                    <h3>pseudo</h3>
-                    <p>blablablalablablabla</p>
-                </div> -->
+                <div class="reponse_ws">
+                    <div class="annonce-msg">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div>
+                </div>
             </section>
             <form action="">
             <div class="message-container">
