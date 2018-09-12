@@ -246,9 +246,9 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     font-weight: bold;
 }
 
-.timepicker-clear, .timepicker-close {
+/* .timepicker-clear, .timepicker-close {
     padding: 0 10px;
-}
+} */
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: #ef5a20;
@@ -256,7 +256,7 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 .btn-small, .btn-small:hover {
     background-color: #6e2996;
-    margin: 0 auto;
+    margin: 0 35%;
 }
 
 /*_________________________ INSCRIPTION _________________________*/

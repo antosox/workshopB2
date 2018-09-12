@@ -1,31 +1,25 @@
-$(document).ready(function(){
-    $('.datepicker').datepicker({
-        format: 'dd/mm/yyyy',
-    });
-    
+$(document).ready(function () {
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy'
+  });
+  // $('.datepicker').datepicker();
 });
 
+$(document).ready(function () {
+  $('.timepicker').timepicker();
+});
 
-$(document).ready(function(){
-    $('.timepicker').timepicker();
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, options);
+});
 
+$(document).ready(function () {
+  $('select').formSelect();
+});
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
+$(document).ready(function () {
+  $('.modal').modal();
+});
 
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-        
-
-  $(document).ready(function(){
-    $('.modal').modal();
-  });
-
-
-  CountDown.load();
+CountDown.load();
