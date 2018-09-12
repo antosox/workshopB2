@@ -1,7 +1,7 @@
 
 .tinder {
   width: 100vw;
-  height: 135vh;
+  height: 140vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@
   display: inline-block;
   width: 90vw;
   max-width: 400px;
-  height: 106vh;
+  height: 115vh;
   background: #CCCCCC;
   padding-bottom: 140px;
   border-radius: 8px;
@@ -79,7 +79,8 @@
 }
 
 .tinder--card img {
-  max-width: 100%;
+  width: 100%;
+  max-height: 65vh;
   pointer-events: none;
 }
 

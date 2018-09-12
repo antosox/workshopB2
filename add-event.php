@@ -20,7 +20,7 @@
          <div class="container">
             <h1>Ajouter un évènement</h1>
             <form enctype="multipart/form-data" action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Modules/TraitementAddEvent.php" method="post">
-               <p><img src="img/picture.svg" alt="picture-file"></p>
+               <p><img src="img/picture.svg" alt="picture-file" class="img-form-event"></p>
                <div class="file-field">
                   <div class="btn-small orange darken-3">
                      <span>Image</span>
@@ -43,20 +43,19 @@
                   </select>
                </div>
                <div class="input-field s6">
-               <p><img src="img/clock.png" alt="clock"></p>
+               <p><img src="img/clock.png" alt="clock" class="img-form-event"></p>
                   <input id="datepicker" name="date" type="text" class="datepicker" placeholder="Date">
                </div>
                <div class="input-field s6">     
                <input type="text" id="timepicker" name="time" class="timepicker" placeholder="Heure">
                   </div>
                </div>
-               <p><img src="img/place.png" alt="place"></p>
-               <div class="input-field s6">
+               <p><img src="img/place.png" alt="place" class="img-form-event"></p>
+               <div class="input-field s12">
                   <input type="text" name="address_event" id="address_event" placeholder="Adresse"> 
                </div>
-               <div class="input-field col s6">
-                  <input id="desc" name="desc" type="text" class="validate">
-                  <label for="desc" class="text-orange text-darken-3">Description</label>
+               <div class="input-field col s12">
+                  <input id="desc" name="desc" type="text" class="validate" placeholder="Description">
                </div>
                <button class="btn-small waves-effect waves-light" type="submit" name="action">Valider</button>           
             </form>
