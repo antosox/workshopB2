@@ -10,8 +10,9 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Css/choice.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <link rel="stylesheet" href="css/choice.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
     <title>Evender</title>
@@ -76,29 +77,40 @@
                 <div class="modal-content">
                     <h4>Mes évènements</h4>
                     <table class="striped">
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="\#">Event blablabla</a></td>
+                        <tr class="event-row">
+                            <td>
+                                <a href="#" class="title-event">Titre</a>
+                                <a href="#" class="annonces">Annonces</a>
+                                <a href="#" class="discuss">Discussion</a>
+                            </td>
                         </tr>
                     </table>
                 </div>
