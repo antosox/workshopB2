@@ -182,7 +182,7 @@ img.medal {
     background-color: #333333;
     text-align: center;
     padding: 3px 0;
-    width: 55%;
+    width: 70%;
     border-radius: 5px;
     margin: 0 auto 20px;
 }
@@ -302,6 +302,10 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 /*_____________________________ CHAT _____________________________*/
 
+.top h2.title-event-staff {
+    color: #6e2996;
+}
+
 .top img {
     width: 22px;
 }
@@ -371,7 +375,7 @@ input#message {
 
 .message-container {
     position: relative;
-    height: 100px;
+    height: 80px;
 }
 
 .message {
@@ -398,4 +402,29 @@ input#message {
 
 .plane-send:focus {
     border-bottom: none;
+}
+
+.annonce-msg {
+    text-align: center;
+}
+
+.annonce-msg h3 {
+    font-family: Oswald, sans-serif;
+    color: #ef5a20;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+}
+
+.annonce-msg p {
+    font-family: Roboto, sans-serif;
+    color: #333333;
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#space-chat {
+    min-height: 120px;
 }

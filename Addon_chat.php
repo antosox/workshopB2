@@ -17,11 +17,12 @@ class Addon_chat {
         $delete->execute();
     }
 
-    public function new_message($id_user, $message, $id_chat){
+    public function new_message($id_user, $message, $id_chat, $id_event){
 
-        $message = $this->db->prepare("INSERT INTO messages_users (`message_user`, `id_chat`, `id_user`) VALUES (:message, :id_chat, :id_user)");
+        $message = $this->db->prepare("INSERT INTO messages (`message`, `id_channel`, `id_user`, `id_event`) VALUES (:message, :id_channel, :id_user, :id_event)");
         $message->bindParam(':message', $message);
-        $message->bindparam(':id_chat', $id_chat);
+        $message->bindparam(':id_channel', $id_chat);
+        $message->bindparam(':id_event', $id_event);
         $message->execute();
     
     }
@@ -32,18 +33,18 @@ class Addon_chat {
         $name->execute();
         return $names = $name->fetchAll();
     }
-
+//useless
     public function other_message($id_user, $id_chat){
 
-        $message = $this->db->prepare("SELECT `message_user` FROM messages_users WHERE `id_chat` = :id_chat AND `id_user` <> '$id_user'");
+        $message = $this->db->prepare("SELECT `message_user` FROM messages_users WHERE `id_chat` = :id_chat AND `id_user` <> '$id_user' ORDER BY id_message DESC");
         $message->bindparam(':id_chat', $id_chat);
         $message->execute();
         return $other_message = $message->fetchAll();
     }
 
-    public function user_message($id_user, $id_chat){
+    public function all_user_message($id_user, $id_chat){
 
-        $message = $this->db->prepare("SELECT `message_user` FROM messages_users WHERE `id_chat` = :id_chat AND `id_user` = '$id_user'");
+        $message = $this->db->prepare("SELECT `message` FROM messages WHERE `id_channel` = :id_chat");
         $message->bindparam(':id_chat', $id_chat);
         $message->execute();
         return $user_message = $message->fetchAll();
@@ -51,22 +52,23 @@ class Addon_chat {
 
     public function nbr_message($id_chat){
 
-        $nbr = $this->db->prepare("SELECT COUNT(`message_user`) FROM messages_users WHERE `id_chat` = :id_chat");
-        $nbr->bindparam(':id_chat', $id_chat);
+        $nbr = $this->db->prepare("SELECT COUNT(`message`) FROM messages WHERE `id_channel` = :id_channel");
+        $nbr->bindparam(':id_channel', $id_chat);
         $nbr->execute();
         return $nbr_message = $nbr->fetch();
     }
 
-    public function staff_new_message($id_chat, $message, $id_user){
+    public function staff_new_message($id_chat, $message, $id_user, $id_event){
 
-        $message = $this->db->prepare("INSERT INTO messages_staff (`message_staff`, `id_admin`, `id_channel`) VALUES (:message, :id_chat, :id_user)");
+        $message = $this->db->prepare("INSERT INTO messages (`message`, `id_user`, `id_channel`, `id_event`) VALUES (:message, :id_chat, :id_user, :id_event)");
         $message->bindparam(':id_chat', $id_chat);
         $message->bindparam(':message', $message);
+        $message->bindparam(':id_event', $id_event);
         $message->execute();
 
     }
-    
-    public function is_event_user($id_event, $id_user){
+
+    public function is_actual_user($id_event, $id_user){
 
         $user = $this->db->prepare("SELECT `id_event`, `id_user` FROM event WHERE `id_event` = :id_event AND `id_user` = '$id_user'");
         $user->bindparam(':id_event', $id_event);
@@ -76,7 +78,7 @@ class Addon_chat {
 
     public function is_event_admin($id_user, $id_event){
         
-        $admin = $this->db->prepare("SELECT `id_admin`, `id_event` FROM staff WHERE `id_admin` = $id_user AND `id_event` = :id_event");
+        $admin = $this->db->prepare("SELECT `id_user`, `id_event` FROM event_users WHERE `Admin` = '1'");
         $admin->bindparam(':id_event', $id_event);
         $admin->execute();
         return $is_admin = $admin->fetchAll();

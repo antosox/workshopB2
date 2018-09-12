@@ -7,9 +7,9 @@ use PDO;
  
 class config {
     const SERVERNAME="localhost";
-    const DBNAME="adminbdd";
-    const USER="adminbdd";
-    const PASSWORD="Epsi2018!";
+    const DBNAME="evender";
+    const USER="root";
+    const PASSWORD="";
 }
 
 class Notifications implements MessageComponentInterface
@@ -29,14 +29,14 @@ class Notifications implements MessageComponentInterface
     
     public function onMessage(ConnectionInterface $from, $msg) {
        
-        $json=json_decode($msg);
+        $json = json_decode($msg);
         
         var_dump($json);
 
       
   
            $db = new PDO("mysql:host=" . Config::SERVERNAME . ";dbname=" . Config::DBNAME, Config::USER, Config::PASSWORD);
-    $sqa = $db->prepare("INSERT INTO `messages`(`content`, `proprietary`, `id_chatroom`) VALUES (:reponse,:login,:id_chatroom)");
+    $sqa = $db->prepare("INSERT INTO `messages`(`content`, `proprietary`, `id_chatroom`) VALUES (:reponse, :login, :id_chatroom)");
     $sqa->bindParam(':reponse', $json->message);
     $sqa->bindParam(':login', $json->{'user'});
     $sqa->bindParam(':id_chatroom', $json->{'chatroom'});
@@ -48,7 +48,7 @@ class Notifications implements MessageComponentInterface
                 $json->{'mine'}=0;
                 $msg=json_encode($json);
                 // The sender is not the receiver, send to each client connected
-                $client->send($msg);
+                 $client->send($msg);
     }else{
     $json->{'mine'}=1;
         $msg=json_encode($json);

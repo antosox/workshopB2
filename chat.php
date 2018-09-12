@@ -41,8 +41,8 @@ $chat = new Addon_chat();
     </header>
     <main>
         <div class="menu">
-            <a href="#" class="staff-link">Staff</a>
-            <a href="#" class="gen-link active">Général</a>
+            <a href="chat-staff.php" class="staff-link">Annonces</a>
+            <a href="chat.php" class="gen-link active">Discussions</a>
         </div>
         <div class="chat-container">
             <div class="top">
@@ -58,17 +58,19 @@ $chat = new Addon_chat();
                     <img src="img/delete.png" alt="delete">
                 </a><?php } ?>
             </div>
-            <section class="space-chat">
-            <?php 
-                $nbr_chat = $chat->nbr_message($id_chat);
-            ?>
-                <div class="sender">
-                    <h3>pseudo</h3>
-                    <p>blablablalablablabla</p>
-                </div>
-                <div class="receiver">
-                    <h3>pseudo</h3>
-                    <p>blablablalablablabla</p>
+            <section id="space-chat">
+                <div id="reponse_ws">
+                    <?php 
+                    $nbr_chat = $chat->nbr_message($id_chat);
+                    ?>
+                    <div class="sender">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div>
+                    <div class="receiver">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div> 
                 </div>
             </section>
             <form action="">
@@ -80,8 +82,7 @@ $chat = new Addon_chat();
                     <input class="plane-send" onclick="submit()" value="Envoyer">  
                 </div>       
             </div>
-            </form>
-        </div>
+        </section>
     </main>
     <footer>
         <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
@@ -152,7 +153,7 @@ $chat = new Addon_chat();
                     newDiv.innerHTML = msg.user + "<br>" + msg.message;
                     scrolls.append(newDiv);
                 }
-            element = document.getElementById('div_scroolable_avec_tout_le_chat');
+            element = document.getElementById('space-chat');
             element.scrollTop = element.scrollHeight;
             }
 
