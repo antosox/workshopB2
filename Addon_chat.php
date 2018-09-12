@@ -17,13 +17,19 @@ class Addon_chat {
         $delete->execute();
     }
 
-    public function new_message($id_user, $message, $id_chat, $id_event){
+    public function new_message($id_user, $message, $id_chat){
 
-        $message = $this->db->prepare("INSERT INTO messages (`message`, `id_channel`, `id_user`, `id_event`) VALUES (:message, :id_channel, :id_user, :id_event)");
+        $message = $this->db->prepare("INSERT INTO messages (`message`) VALUES (:message)");
         $message->bindParam(':message', $message);
-        $message->bindparam(':id_channel', $id_chat);
-        $message->bindparam(':id_event', $id_event);
         $message->execute();
+        $id_message = $message->lastInsertId();
+
+        $user_message = $this->db->prepare("INSERT INTO user_messages (`id_user`, `id_message`) VALUES ($id_user, $id_message)");
+        $user_message->execute();
+
+        $message_channel = $this->db->prepare("INSERT INTO messages_channels (`id_channel`, `id_message`) VALUES (:id_channel, $id_message)");
+        $message_channel->bindparam(':id_channel', $id_chat);
+        $message_channel->execute();
     
     }
 
@@ -42,12 +48,19 @@ class Addon_chat {
         return $other_message = $message->fetchAll();
     }
 
-    public function all_user_message($id_user, $id_chat){
+    public function all_user_message($id_chat){
 
-        $message = $this->db->prepare("SELECT `message` FROM messages WHERE `id_channel` = :id_chat");
-        $message->bindparam(':id_chat', $id_chat);
+        $message = $this->db->prepare("SELECT `id_message` FROM messages WHERE `id_channel` = :id_chat ORDER BY `id_message`");
+        $message->bindparam(':id_channel', $id_chat);
         $message->execute();
-        return $user_message = $message->fetchAll();
+        return $id_message = $message->fetchAll();
+    }
+
+    public function message_of_user($id_message){
+
+        $message = $this->db->prepare("SELECT `message` FROM messages WHERE `id_message` = $id_message");
+        $message->execute();
+        return $user_message = $message->fetch();
     }
 
     public function nbr_message($id_chat){
