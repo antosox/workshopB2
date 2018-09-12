@@ -15,8 +15,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
-    <link rel="stylesheet" href="css/choice.css">
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/choice.css">
+    <link rel="stylesheet" href="css/style.css"> 
     <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">     
     <title>Evender</title>
 </head>
@@ -42,34 +42,37 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
             </div>
 
 <?php
-
+   
  $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
  $req = $db->prepare("SELECT * FROM event");
  $req->execute();
  $events = $req->fetchAll();
 
  foreach($events as $event) {
+    
+    $event['Date'] = date("d/m/y G:i", strtotime($event['Date']));
 
-    $total = $db->prepare("SELECT count(*) total FROM event_users where id_event = :id ");
+    $total = $db->prepare("SELECT COUNT(*) total FROM event_users where id_event = :id");
     $total->bindValue(':id', $event['id_event']);
+    $total->execute();
     $nbr = $total->fetch();
-var_dump($event['id_event'],$nbr['total']);
-    $admin = $db->prepare("SELECT * from event_users eu JOIN event e
+
+    $admin = $db->prepare("SELECT u.id_user,u.firstname,u.name from event_users eu JOIN event e
     on e.id_event = eu.id_event
     JOIN user u
     on u.id_user = eu.id_user
-    where eu.id_event = :id AND eu.Admin = :isadmin
-    ");
+    where eu.id_event = :id AND eu.Admin = :isadmin");
     $admin->bindValue(':id', $event['id_event'] );
     $admin->bindValue(':isadmin', 1);
-    $admin = $req->fetch();
+    $admin->execute();
+    $adm = $admin->fetch();
 
     echo '<div class="tinder--cards">
           <div class="tinder--card">
             <img src="Assets/Events/'.$event['image'].'">
             <div class="infos">
                 <h2>'.$event['title'].'</h2>
-                <h2>'.$event['id_event'].'</h2>
+               
                 <p>'.$event['Date'].'</p>
                 <p>'.$event['local_event'].'</p>
             </div>
@@ -78,7 +81,7 @@ var_dump($event['id_event'],$nbr['total']);
                 <p>'.$nbr['total'].'</p>
             </div>
             <div class="admin-organizer">
-                <p>'.$admin['firstname'].' '.$admin['name'].'</p>
+                <p>'.$adm['firstname'].' '.$adm['name'].'</p>
             </div>
                 <div class="medal-organizer">
                     <img src="img/medals/medal-wood.png" alt="medal-wood" class="medal">
@@ -88,6 +91,7 @@ var_dump($event['id_event'],$nbr['total']);
                 </div>
 
                 <div class="description">'.
+                
                   $event['description'].
                 '</div>
             </div>';
