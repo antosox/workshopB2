@@ -6,6 +6,8 @@ if(empty($_SESSION['connected'])) {
     header('location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
 
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,13 +32,13 @@ if(empty($_SESSION['connected'])) {
 </head>
     <body>
         <header>
-            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/index.php" class="btn-return">
+            <a href="#" class="btn-return">
                 <img src="img/sign-out-option.svg" alt="return">
             </a>
             <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
                 <img src="img/add-event.svg" alt="">
             </a>
-            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
+            <a href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
                 <img src="img/disconnection.svg" alt="disconnection">
             </a>
             <div class="logo">
@@ -46,7 +48,7 @@ if(empty($_SESSION['connected'])) {
             </div>
         </header>
         <main>
-<div class="tinder">
+<div class="tinder"  id="test">
             <div class="tinder--status">
           <i class="fa fa-remove"></i>
           <i class="fa fa-check"></i>
@@ -156,6 +158,7 @@ if(empty($_SESSION['connected'])) {
     <script type="text/javascript" src="js/slide.js"></script>
     <script src="js/script.js"></script>
 <script>
+console.log('test');
             var ws = new WebSocket('ws://localhost:9000');
             console.log(ws);
             ws.onopen = function () {
@@ -177,12 +180,11 @@ if(empty($_SESSION['connected'])) {
             }
 
 function submit() {
-
+console.log('test');
             var id_event = document.getElementById('id_event').value;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
             var data = {
-            event = 1,
-            type_message = 0,
+            event: 1,
             message: id_event,
                     user: user};
             ws.send(JSON.stringify(data));
