@@ -415,8 +415,8 @@ input#message {
 .message-send {
     position: absolute;
     right: 15px;
-    top: 0;
-    width: 20px;
+    top: -13.2px;
+    border-bottom: none;
 }
 
 .plane-send {
@@ -430,6 +430,7 @@ input#message {
 }
 
 .plane-send:focus {
+    background-color: transparent;
     border-bottom: none;
 }
 
