@@ -48,10 +48,10 @@ if(empty($_SESSION['connected'])) {
             </div>
         </header>
         <main>
-<div class="tinder" id="test">
+            <div class="tinder" id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
             <div class="tinder--status">
-          <i class="fa fa-remove"></i>
-          <i class="fa fa-check"></i>
+                <i class="fa fa-remove"></i>
+                <i class="fa fa-check"></i>
             </div>
             <div class="tinder--cards">
 <?php
@@ -188,15 +188,37 @@ function submit() {
                     user: user};
             ws.send(JSON.stringify(data));         
         }
-        
-    $(function(){
-        if ($("#test").hasClass('tinder_love')){
-                console.log("1");
-                submit();
-        } else {
-            console.log("0");
-        }
-    });
 
-        </script>
+        var dragged;
+
+        function hello(){
+            console.log("Saluuuuuuut");
+        }
+
+        document.addEventListener("drag", function( event ) {
+            
+        }, false);
+
+        document.addEventListener("dragstart", function( event ) {
+            // store a ref. on the dragged elem
+            dragged = event.target;
+            // make it half transparent
+            event.target.style.opacity = .5;
+        }, false);
+      
+        document.addEventListener("dragend", function( event ) {
+            // reset the transparency
+            event.target.style.opacity = 0;
+            hello();
+        }, false);
+
+        // document.addEventListener("dragend", function( event ) {
+        //     // reset the transparency
+        //     // event.target.style.opacity = "";
+        //     event.target.style.opacity = 0;
+        //     submit();
+        // }, false);
+
+    </script>
+
 </html>
