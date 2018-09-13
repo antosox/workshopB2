@@ -35,7 +35,7 @@ class Notifications implements MessageComponentInterface
         $json = json_decode($msg);
         
         var_dump($json);
-        
+        if($json->event == 0){
         $message = $this->db->prepare("INSERT INTO messages (`message`) VALUES (:message)");
         $message->bindParam(':message', $json->message);
         $message->execute();
@@ -47,6 +47,14 @@ class Notifications implements MessageComponentInterface
         $message_channel = $this->db->prepare("INSERT INTO messages_channels (`id_channel`, `id_messages`) VALUES (:id_channel, $id_message)");
         $message_channel->bindparam(':id_channel', $json->chatroom);
         $message_channel->execute();
+
+        $name = $this->db->prepare("SELECT `firstname`, `name` FROM user WHERE `id_user` = '$json->user'");
+        $name->execute();
+        $names = $name->fetch();
+
+        $json->firstname = $names['firstname'];
+        $json->name = $names['name'];
+        var_dump($json);
 
     foreach ($this->clients as $client) {
             if ($from !== $client) {
@@ -61,8 +69,10 @@ class Notifications implements MessageComponentInterface
         }
         
     }
+    }else{
+
     }
-     
+}
     public function onClose(ConnectionInterface $conn) {
         echo "Connection has disconnected\n";
     }

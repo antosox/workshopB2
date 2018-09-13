@@ -85,7 +85,7 @@ if(empty($_SESSION['connected'])) {
             <img src="Assets/Events/'.$event['image'].'">
             <div class="infos">
                 <h2>'.$event['title'].'</h2>
-               
+                <input id="id_event" type="hidden" value="'.$event['id_event'].'"> 
                 <p>'.$event['Date'].'</p>
                 <p>'.$event['local_event'].'</p>
             </div>
@@ -118,7 +118,7 @@ if(empty($_SESSION['connected'])) {
  </div>     
  <div class="tinder--buttons">
           <button id="nope"><i class="fa fa-remove"></i></button>
-          <button id="love"><i class="fa fa-check"></i></button>
+          <button id="love" onclick="submit()"><i class="fa fa-check"></i></button>
         </div>
         </main>
         <footer>
@@ -127,7 +127,7 @@ if(empty($_SESSION['connected'])) {
             <div id="modal1" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Mes évènements</h4>
-                    <table class="striped">
+                    <table id="table_event" class="striped">
                         
                             <?php
                             $channels = $db->prepare("SELECT * From event_users eu join event e 
@@ -139,7 +139,7 @@ if(empty($_SESSION['connected'])) {
                             echo '
                             <tr class="event-row">
                             <td>
-                                <a href="#" class="title-event">'.$participate['title'].'</a>
+                                <h2 class="title-event">'.$participate['title'].'</h2>
                                 <a href="#" class="annonces">Annonces</a>
                                 <a href="#" class="discuss">Discussion</a>
                                 </td> 
@@ -156,4 +156,39 @@ if(empty($_SESSION['connected'])) {
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
     <script type="text/javascript" src="js/slide.js"></script>
+    <script src="js/script.js"></script>
+<script>
+            var ws = new WebSocket('ws://localhost:9000');
+            console.log(ws);
+            ws.onopen = function () {
+                console.log('websocket is connected ...');
+            }
+        
+            ws.onmessage = function (event) {
+                const tab = document.getElementById('table_event');
+                newline = document.createElement('tr');
+                var content = '<tr class="event-row"><td><h2 class="title-event">'+
+                'WORKSHOP'+
+                '</h2><a href="'+
+                '#'+
+                '" class="annonces">Annonces</a><a href="'+
+                '#'+
+                '" class="discuss">Discussion</a></td></tr>'
+            newline.innerHTML = content;
+            tab.append(newline);
+            }
+
+function submit() {
+
+            var id_event = document.getElementById('id_event').value;
+            var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
+            var data = {
+            event = 1,
+            type_message = 0,
+            message: id_event,
+                    user: user};
+            ws.send(JSON.stringify(data));
+                
+        }
+        </script>
 </html>

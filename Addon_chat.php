@@ -36,7 +36,7 @@ class Addon_chat {
 
         $name = $this->db->prepare("SELECT `firstname`, `name` FROM user WHERE `id_user` = '$id_user'");
         $name->execute();
-        return $names = $name->fetchAll();
+        return $names = $name->fetch();
     }
 //useless
     public function other_message($id_user, $id_chat){

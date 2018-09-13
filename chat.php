@@ -176,11 +176,11 @@ $chat = new Addon_chat();
             let newDiv = document.createElement('div');
                 if (msg.mine == 0) {
                     newDiv.className = "receiver";
-                    newDiv.innerHTML = msg.user + "<br>" + msg.message;
+                    newDiv.innerHTML = msg.firstname + ' ' + msg.name + "<br>" + msg.message;
                     scrolls.append(newDiv);
                 } else {
                     newDiv.className = "sender";
-                    newDiv.innerHTML = msg.user + "<br>" + msg.message;
+                    newDiv.innerHTML = msg.firstname + ' ' + msg.name + "<br>" + msg.message;
                     scrolls.append(newDiv);
                 }
             element = document.getElementById('space-chat');
@@ -192,6 +192,7 @@ function submit() {
             var chatroom = <?php echo $id_chat ?>;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
             var data = {
+                event: 0,
             message: msg,
                     user: user,
                     chatroom: chatroom,
