@@ -102,17 +102,24 @@ $chat = new Addon_chat();
                            {
                             
                             echo '<div class="sender">';
-                           
+                            echo '<h3>';
                             echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
+                            echo '</h3>';
+                            echo '<p>';
                             echo $getmsg['message'];
+                            echo '</p>';
                             echo '</div>';
                            }
 
                            else {
                                echo 'ok2';
                                echo '<div class="receiver">';
+                               echo '<h3>';
                                echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
+                               echo '</h3>';
+                               echo '<p>';
                                echo $getmsg['message'];
+                               echo '</p>';
                                echo '</div>';
                                 }    
                         }

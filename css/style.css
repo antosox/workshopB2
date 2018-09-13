@@ -451,7 +451,8 @@ input#message {
 
 #space-chat {
     height: 120px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 
