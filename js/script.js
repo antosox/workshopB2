@@ -2,7 +2,6 @@ $(document).ready(function () {
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy'
   });
-  // $('.datepicker').datepicker();
 });
 
 $(document).ready(function () {
@@ -20,6 +19,11 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.modal').modal();
+});
+
+
+$(document).ready(function(){
+  $('.sidenav').sidenav();
 });
 
 CountDown.load();

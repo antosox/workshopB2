@@ -178,24 +178,8 @@ img.medal {
 
 /*__________________________________ ADD EVENT __________________________________*/
 
-.menu {
-    background-color: #333333;
-    text-align: center;
-    padding: 3px 0;
-    width: 70%;
-    border-radius: 5px;
-    margin: 0 auto 20px;
-}
-
-.menu a {
-    color: #eeeeee;
-    margin: 0 5px;
-}
-
-.menu a.active {
-    color: #eeeeee;
-    font-weight: 700;
-    margin: 0 10px;
+form {
+    padding-bottom: 20px;
 }
 
 form p {
@@ -259,6 +243,10 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     margin: 0 35%;
 }
 
+i.img-form-event {
+    font-size: 30px;
+}
+
 /*_________________________ INSCRIPTION _________________________*/
 
 #ins_submit_btn {
@@ -302,6 +290,42 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
 
 /*_____________________________ CHAT _____________________________*/
 
+.menu-icon {
+    text-align: center;
+}
+
+.sidenav {
+    padding-top: 30px;
+}
+
+img.menu-icon {
+    width: 30px;
+}
+
+.sidenav .subheader.one {
+    font-family: Oswald, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ef5a20
+}
+
+.sidenav .subheader.two {
+    font-family: Oswald, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #6e2996;
+}
+
+.sidenav li > a {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.sidenav li > a.chan-active {
+    font-weight: 700;
+}
+
+
 .top h2.title-event-staff {
     color: #6e2996;
 }
@@ -314,6 +338,7 @@ input.valid[type="text"]:not(.browser-default), input.valid[type="text"]:not(.br
     position: relative;
     background-color: #eeeeee;
     padding: 5px;
+    height: 32px;
 }
 
 .top h2 {

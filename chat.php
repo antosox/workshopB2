@@ -13,15 +13,21 @@ $chat = new Addon_chat();
 
 <head>
 <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <!-- Feuilles CSS -->
+    <link rel="stylesheet" href="css/choice.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">  
     <title>Chat</title>
 </head>
 
@@ -40,10 +46,21 @@ $chat = new Addon_chat();
         </div>
     </header>
     <main>
-        <div class="menu">
-            <a href="chat-staff.php" class="staff-link">Annonces</a>
-            <a href="chat.php" class="gen-link active">Discussions</a>
-        </div>
+        <ul id="slide-out" class="sidenav">
+            <li><a class="subheader one">Catégories</a></li>
+            <li><a class="waves-effect" href="#!">Sport</a></li>
+            <li><a class="waves-effect" href="#!">Culture</a></li>
+            <li><a class="waves-effect" href="#!">Divertissements</a></li>   
+            <li><div class="divider"></div></li>
+            <li><a class="subheader two">Channels</a></li>
+            <li><a class="waves-effect" href="chat-staff.php">Annonces</a></li>
+            <li><a class="waves-effect chan-active" href="chat.php">Discussions</a></li>
+        </ul>
+        <p class="menu-icon">
+            <a href="#" data-target="slide-out" class="sidenav-trigger">
+                <img src="img/menu_nav.png" class="menu-icon" alt="Menu">
+            </a>
+        </p>
         <div class="chat-container">
             <div class="top">
                 <a href="mailto:" class="mail">
