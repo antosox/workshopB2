@@ -91,10 +91,10 @@ class Addon_chat {
 
     public function is_event_admin($id_user, $id_event){
         
-        $admin = $this->db->prepare("SELECT `id_user`, `id_event` FROM event_users WHERE `Admin` = '1'");
+        $admin = $this->db->prepare("SELECT `id_user`, `id_event` FROM event_users WHERE `Admin` = '1' AND id_event = :id_event");
         $admin->bindparam(':id_event', $id_event);
         $admin->execute();
-        return $is_admin = $admin->fetchAll();
+        return $is_admin = $admin->fetch();
     }
 
     public function event_name($id_event){

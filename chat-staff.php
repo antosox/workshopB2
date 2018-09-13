@@ -4,8 +4,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 
 $chat = new Addon_chat();
 
-    $id_user = $_SESSION['user']['id'] = '9';
-    $id_chat = $_SESSION['chat']['id'] = '14';
+    $id_user = $_SESSION['user']['id'] = '11';
+    $id_chat = $_SESSION['chat']['id'] = '13';
     $id_event = $_SESSION['event']['id'] = '32';
 
 ?>
@@ -82,24 +82,49 @@ $chat = new Addon_chat();
             </div>
             <section id="space-chat">
                 <div class="reponse_ws">
-                    <div class="annonce-msg">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
+                    
+                    <?php 
+            $nbr_chat = $chat->nbr_message($id_chat);
+            $nbr_chat = $nbr_chat[COUNT(`message`)];
+            
+            $admin = $chat->is_event_admin($id_user, $id_event);
+           
+                if($nbr_chat > 0){
+                    
+                    $all_message = $chat->all_user_id_message($id_chat);
+                   
+                        foreach($all_message as $message){
+                           $getmsg = $chat->message_of_user($message['id_messages']);
+                           $id_message_user = $chat->get_iduser($message['id_messages']);
+                           $firstname = $chat->firstname_name($id_message_user['id_user']);
+
+                            echo '<div class="annonce-msg">';
+                            echo '<h3>';
+                            echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
+                            echo '</h3>';
+                            echo '<p>';
+                            echo $getmsg['message'];
+                            echo '</p>';
+                            echo '</div>';
+                        }
+                }
+            ?>
+       
                 </div>
             </section>
-            <form action="">
                 <div class="message-container">
                     <div class="input-field col s12 message">
-                        <input type="text" name="message" id="message" placeholder="Ecrire son message">
+                        <input type="text" <?php if($admin['id_user'] != $id_user ) {echo 'disabled';} ?>  name="message" id="message" placeholder="<?php if($admin['id_user'] == $id_user) {echo 'ecrire son message';} ?>">
+
+
                     </div>   
                     <div class="col s12 message-send">
-                        <button class="btn waves-effect waves-light plane-send purple darken-3" onclick="submit()">
+                        <button <?php if($admin['id_user'] != $id_user ) {echo 'disabled';} ?> class="btn waves-effect waves-light plane-send purple darken-3" onclick="submit()">
                             <i class="material-icons center">send</i>
                         </button>  
                     </div>
                 </div>
-            </form>
+           
         </div>
     </main>
     <footer>
@@ -150,4 +175,41 @@ $chat = new Addon_chat();
     </footer>
 </body>
 <script src="js/script.js"></script>
+<script>
+            var ws = new WebSocket('ws://localhost:9000');
+            console.log(ws);
+            ws.onopen = function () {
+                console.log('websocket is connected ...');
+            }
+        
+            ws.onmessage = function (event) {
+                    var msg = JSON.parse(event.data);
+            console.log(msg);
+            const scrolls = document.getElementById('reponse_ws');
+            let newDiv = document.createElement('div');
+               
+                    newDiv.className = "sender";
+                    newDiv.innerHTML = msg.firstname + ' ' + msg.name + "<br>" + msg.message;
+                    scrolls.append(newDiv);
+                
+            element = document.getElementById('space-chat');
+            element.scrollTop = element.scrollHeight;
+            }
+
+function submit() {
+            var msg = document.getElementById('message').value;
+            var chatroom = <?php echo $id_chat ?>;
+            var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
+            var data = {
+                event: 0,
+            message: msg,
+                    user: user,
+                    admin: 1,
+                    chatroom: chatroom,
+                    mine: 0};
+                    console.log(data);
+            ws.send(JSON.stringify(data));
+                
+        }
+        </script>
 </html>

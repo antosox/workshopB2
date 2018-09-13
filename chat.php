@@ -87,7 +87,7 @@ $chat = new Addon_chat();
                 <?php 
             $nbr_chat = $chat->nbr_message($id_chat);
             $nbr_chat = $nbr_chat[COUNT(`message`)];
-            
+          
                 if($nbr_chat > 0){
                     
                     $all_message = $chat->all_user_id_message($id_chat);
@@ -112,7 +112,7 @@ $chat = new Addon_chat();
                            }
 
                            else {
-                               echo 'ok2';
+                              
                                echo '<div class="receiver">';
                                echo '<h3>';
                                echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
@@ -129,7 +129,7 @@ $chat = new Addon_chat();
             </section>
             <div class="message-container">
                 <div class="input-field col s12 message">
-                    <input type="text" name="message" id="message" placeholder="Ecrire son message">
+                    <input type="text" name="message" id="message" placeholder="ecrire son message">
                 </div>   
                 <div class="col s12 message-send">
                     <button class="btn waves-effect waves-light plane-send orange darken-3" onclick="submit()">
@@ -219,6 +219,7 @@ function submit() {
             var data = {
                 event: 0,
             message: msg,
+                    admin: 0,
                     user: user,
                     chatroom: chatroom,
                     mine: 0};
