@@ -1,3 +1,14 @@
+<?php
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
+
+$chat = new Addon_chat();
+
+    $id_user = $_SESSION['user']['id'] = '9';
+    $id_chat = $_SESSION['chat']['id'] = '14';
+    $id_event = $_SESSION['event']['id'] = '32';
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -62,9 +73,12 @@
                     <img src="img/mail.png" alt="mail">
                 </a>
                 <h2 class="title-event-staff">Titre de l'évènement</h2>
-                <a href="" class="trash">
-                    <img src="img/delete.png" alt="delete">
-                </a>
+                <?php if(!empty($chat->is_event_admin($id_user, $id_event))){
+                        echo '<a href="" class="trash">
+                            <img src="img/delete.png" alt="delete">
+                        </a>';
+                }
+                ?>
             </div>
             <section id="space-chat">
                 <div class="reponse_ws">

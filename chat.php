@@ -123,10 +123,8 @@ $chat = new Addon_chat();
                                echo '</div>';
                                 }    
                         }
-                    
                 }
             ?>
-                    
                 </div>
             </section>
             <div class="message-container">
