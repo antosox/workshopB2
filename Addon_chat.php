@@ -21,7 +21,7 @@ class Addon_chat {
         $message = $this->db->prepare("INSERT INTO messages (`message`) VALUES (:message)");
         $message->bindParam(':message', $message);
         $message->execute();
-        $id_message = $message->lastInsertId();
+        $id_message = $this->db->lastInsertId();
 
         $user_message = $this->db->prepare("INSERT INTO user_messages (`id_user`, `id_message`) VALUES ($id_user, $id_message)");
         $user_message->execute();
@@ -47,9 +47,9 @@ class Addon_chat {
         return $other_message = $message->fetchAll();
     }
 
-    public function all_user_message($id_chat){
-
-        $message = $this->db->prepare("SELECT `id_message` FROM messages WHERE `id_channel` = :id_chat ORDER BY `id_message`");
+    public function all_user_id_message($id_chat){
+        var_dump($id_chat);
+        $message = $this->db->prepare("SELECT `id_messages` FROM messages_channels WHERE `id_channel` = :id_chat ORDER BY `id_messages`");
         $message->bindparam(':id_channel', $id_chat);
         $message->execute();
         return $id_message = $message->fetchAll();
@@ -64,7 +64,8 @@ class Addon_chat {
 
     public function nbr_message($id_chat){
 
-        $nbr = $this->db->prepare("SELECT COUNT(`message`) FROM messages WHERE `id_channel` = :id_channel");
+
+        $nbr = $this->db->prepare("SELECT COUNT(`id_messages`) FROM messages_channels WHERE `id_channel` = :id_channel");
         $nbr->bindparam(':id_channel', $id_chat);
         $nbr->execute();
         return $nbr_message = $nbr->fetch();

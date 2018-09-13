@@ -82,9 +82,9 @@ $chat = new Addon_chat();
                 <?php 
             $nbr_chat = $chat->nbr_message($id_chat);
             $nbr_chat = $nbr_chat[COUNT(`message`)];
-            echo($nbr_chat);
+            var_dump($nbr_chat);
                 if($nbr_chat > 0){
-                    $all_message = $chat->all_user_message($id_chat);
+                    $all_message = $chat->all_user_id_message($id_chat);
                     for($i = 0; $i < $nbr_chat; $i++){
                         foreach($all_message as $message){
                             echo($message);
@@ -102,13 +102,12 @@ $chat = new Addon_chat();
                     </div> 
                 </div>
             </section>
-            <form action="">
             <div class="message-container">
                 <div class="input-field col s12 message">
                     <input type="text" name="message" id="message" placeholder="Ecrire son message">
                 </div>   
                 <div class="input-field col s12 message-send">
-                    <input class="plane-send" onclick="submit()" value="Envoyer">  
+                    <button class="plane-send" onclick="submit()">envoi</button>  
                 </div>       
             </div>
         </section>
@@ -187,7 +186,6 @@ $chat = new Addon_chat();
             }
 
 function submit() {
-
             var msg = document.getElementById('message').value;
             var chatroom = <?php echo $id_chat ?>;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
@@ -196,6 +194,7 @@ function submit() {
                     user: user,
                     chatroom: chatroom,
                     mine: 0};
+                    console.log(data);
             ws.send(JSON.stringify(data));
                 
         }

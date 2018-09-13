@@ -7,7 +7,7 @@ use PDO;
 
  
 class config {
-    const SERVERNAME="localhost";
+    const SERVERNAME="127.0.0.1";
     const DBNAME="evender";
     const USER="root";
     const PASSWORD="";
@@ -17,9 +17,11 @@ class Notifications implements MessageComponentInterface
 {
    
     protected $clients;
+    protected $db;
 
     public function __construct() {
         $this->clients = new \SplObjectStorage;
+        $this->db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
     }
 
     public function onOpen(ConnectionInterface $conn) {
@@ -33,9 +35,18 @@ class Notifications implements MessageComponentInterface
         $json = json_decode($msg);
         
         var_dump($json);
+        
+        $message = $this->db->prepare("INSERT INTO messages (`message`) VALUES (:message)");
+        $message->bindParam(':message', $json->message);
+        $message->execute();
+        $id_message = $this->db->lastInsertId();
 
-      
-   
+        $user_message = $this->db->prepare("INSERT INTO user_messages (`id_user`, `id_messages`) VALUES ($json->user, $id_message)");
+        $user_message->execute();
+
+        $message_channel = $this->db->prepare("INSERT INTO messages_channels (`id_channel`, `id_messages`) VALUES (:id_channel, $id_message)");
+        $message_channel->bindparam(':id_channel', $json->chatroom);
+        $message_channel->execute();
 
     foreach ($this->clients as $client) {
             if ($from !== $client) {
