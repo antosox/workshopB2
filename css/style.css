@@ -450,7 +450,8 @@ input#message {
 }
 
 #space-chat {
-    min-height: 120px;
+    height: 120px;
+    overflow: scroll;
 }
 
 
@@ -464,4 +465,3 @@ input#message {
     font-family: Oswald, sans-serif;
     color: red;
 }
-

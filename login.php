@@ -78,7 +78,7 @@ if ($answer['password'] != $_POST['password']) {
             <i class="material-icons prefix connexion">mail</i>
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" name="login" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>" value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" placeholder="Login" >
+                    <input type="text" name="login" class="login-input form-control<?php if ($erreur == true) echo " invalid"; ?>" value="<?php if (isset($_COOKIE['login'])) echo $_COOKIE['login'];?>" placeholder="Email" >
                 </div>
             </div>
             <i class="material-icons prefix connexion">lock</i>
