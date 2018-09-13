@@ -296,6 +296,7 @@ i.img-form-event {
 /*_____________________________ CHAT _____________________________*/
 
 .menu-icon {
+    display: none;
     text-align: center;
 }
 

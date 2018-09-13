@@ -48,7 +48,7 @@ if(empty($_SESSION['connected'])) {
             </div>
         </header>
         <main>
-<div class="tinder"  id="test">
+<div class="tinder" id="test">
             <div class="tinder--status">
           <i class="fa fa-remove"></i>
           <i class="fa fa-check"></i>
@@ -156,7 +156,6 @@ if(empty($_SESSION['connected'])) {
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
     <script type="text/javascript" src="js/slide.js"></script>
-    <script src="js/script.js"></script>
 <script>
 console.log('test');
             var ws = new WebSocket('ws://localhost:9000');
@@ -180,31 +179,24 @@ console.log('test');
             }
 
 function submit() {
-console.log('test');
+            console.log('test');
             var id_event = document.getElementById('id_event').value;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
             var data = {
             event: 1,
             message: id_event,
                     user: user};
-            ws.send(JSON.stringify(data));
-                
+            ws.send(JSON.stringify(data));         
         }
 
-        let elm = document.getElementById('test');
+        var elm = document.getElementById('test');
+        
         if(elm.className === 'tinder_love'){
-            console.log("1");
+            console.log('1');
             submit();
         } else {
-            console.log("0");
+            console.log('0');
         }
-        
-    // if ($(".tinder--card").hasClass('tinder_love')){
-    //         console.log("1");
-    //         submit();
-    // } else {
-    //     console.log("0");
-    // }
 
         </script>
 </html>
