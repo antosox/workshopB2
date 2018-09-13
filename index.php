@@ -188,25 +188,15 @@ function submit() {
                     user: user};
             ws.send(JSON.stringify(data));         
         }
-while(1<2){
-    $(function(){
-    if ($("#test").hasClass('tinder_love')){
-            console.log("1");
-            submit();
-    } else {
-        console.log("0");
-    }
-    });
-}
-
-        // var elm = document.getElementById('test');
         
-        // if(elm.className === 'tinder_love'){
-        //     console.log('1');
-        //     submit();
-        // } else {
-        //     console.log('0');
-        // }
+    $(function(){
+        if ($("#test").hasClass('tinder_love')){
+                console.log("1");
+                submit();
+        } else {
+            console.log("0");
+        }
+    });
 
         </script>
 </html>
