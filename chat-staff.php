@@ -204,7 +204,6 @@ function submit() {
                 event: 0,
             message: msg,
                     user: user,
-                    admin: 1,
                     chatroom: chatroom,
                     mine: 0};
                     console.log(data);
