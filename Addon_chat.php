@@ -49,10 +49,10 @@ class Addon_chat {
 
     public function all_user_id_message($id_chat){
         var_dump($id_chat);
-        $message = $this->db->prepare("SELECT `id_messages` FROM messages_channels WHERE `id_channel` = :id_chat ORDER BY `id_messages`");
-        $message->bindparam(':id_channel', $id_chat);
-        $message->execute();
-        return $id_message = $message->fetchAll();
+        $msg = $this->db->prepare("SELECT `id_messages` FROM messages_channels WHERE `id_channel` = :id_chat ORDER BY `id_messages`");
+        $msg->bindparam(':id_chat', $id_chat);
+        $msg->execute();
+        return $id_message = $msg->fetchAll();
     }
 
     public function message_of_user($id_message){
@@ -104,6 +104,16 @@ class Addon_chat {
         $name->execute();
         return $title = $name->fetch();
     }
+
+
+    public function get_iduser($id_message){
+
+        $user = $this->db->prepare("SELECT `id_user` FROM `user_messages` where `id_messages` = :idmsg ");
+        $user->bindparam(':idmsg', $id_message);
+        $user->execute();
+        return $id = $user->fetch();
+    }
+
 
 }
 ?>

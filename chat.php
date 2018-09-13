@@ -4,9 +4,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 
 $chat = new Addon_chat();
 
-$id_user = $_SESSION['user']['id'] = '9';
-$id_chat = $_SESSION['chat']['id'] = '2';
-$id_event = $_SESSION['event']['id'] = '11';
+    $id_user = $_SESSION['user']['id'] = '9';
+    $id_chat = $_SESSION['chat']['id'] = '14';
+    $id_event = $_SESSION['event']['id'] = '32';
 
 ?>
 <!DOCTYPE html>
@@ -85,50 +85,41 @@ $id_event = $_SESSION['event']['id'] = '11';
             <section id="space-chat">
                 <div id="reponse_ws">
                 <?php 
-                    $nbr_chat = $chat->nbr_message($id_chat);
-                    $nbr_chat = $nbr_chat[COUNT(`message`)];
-                    // var_dump($nbr_chat);
-                        if($nbr_chat > 0){
-                            $all_message = $chat->all_user_id_message($id_chat);
-                            for($i = 0; $i < $nbr_chat; $i++){
-                                foreach($all_message as $message){
-                                    echo($message);
-                                }
-                            }
+            $nbr_chat = $chat->nbr_message($id_chat);
+            $nbr_chat = $nbr_chat[COUNT(`message`)];
+            
+                if($nbr_chat > 0){
+                    
+                    $all_message = $chat->all_user_id_message($id_chat);
+                    
+                        foreach($all_message as $message){
+                           $getmsg = $chat->message_of_user($message['id_messages']);
+                           
+                           $id_message_user = $chat->get_iduser($message['id_messages']);
+                           $firstname = $chat->firstname_name($id_message_user['id_user']);
+
+                           if ($id_message_user['id_user'] == $id_user) 
+                           {
+                            
+                            echo '<div class="sender">';
+                           
+                            echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
+                            echo $getmsg['message'];
+                            echo '</div>';
+                           }
+
+                           else {
+                               echo 'ok2';
+                               echo '<div class="receiver">';
+                               echo $firstname['firstname'] . ' '. $firstname['name'].'<br>';
+                               echo $getmsg['message'];
+                               echo '</div>';
+                                }    
                         }
-                    ?>
-                    <div class="sender">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
-                    <div class="receiver">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
-                    <div class="sender">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
-                    <div class="receiver">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div> 
-                    <div class="sender">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
-                    <div class="receiver">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div> 
-                    <div class="sender">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div>
-                    <div class="receiver">
-                        <h3>pseudo</h3>
-                        <p>blablablalablablabla</p>
-                    </div> 
+                    
+                }
+            ?>
+                    
                 </div>
             </section>
             <div class="message-container">
