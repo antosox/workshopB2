@@ -5,8 +5,6 @@ use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use PDO;
 
-include_once '../Addon_chat.php';
-
  
 class config {
     const SERVERNAME="localhost";
@@ -19,11 +17,9 @@ class Notifications implements MessageComponentInterface
 {
    
     protected $clients;
-    private $chat;
 
     public function __construct() {
         $this->clients = new \SplObjectStorage;
-        $this->$chat = new Addon_chat();
     }
 
     public function onOpen(ConnectionInterface $conn) {
