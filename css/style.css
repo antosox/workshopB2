@@ -415,10 +415,10 @@ input#message {
 .message-send {
     position: absolute;
     right: 15px;
-    top: -13.2px;
+    top: 0;
     border-bottom: none;
 }
-
+/* 
 .plane-send {
     background-image: url("../img/send.png");
     border: none;
@@ -427,7 +427,7 @@ input#message {
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-position: right;
-}
+} */
 
 .plane-send:focus {
     background-color: transparent;

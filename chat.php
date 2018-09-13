@@ -106,8 +106,10 @@ $chat = new Addon_chat();
                 <div class="input-field col s12 message">
                     <input type="text" name="message" id="message" placeholder="Ecrire son message">
                 </div>   
-                <div class="input-field col s12 message-send">
-                    <button class="plane-send" onclick="submit()">envoi</button>  
+                <div class="col s12 message-send">
+                    <button class="btn waves-effect waves-light plane-send orange darken-3" onclick="submit()">
+                        <i class="material-icons center">send</i>
+                    </button>  
                 </div>       
             </div>
         </section>
