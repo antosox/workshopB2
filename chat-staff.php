@@ -183,11 +183,12 @@ $chat = new Addon_chat();
             }
         
             ws.onmessage = function (event) {
+                console.log('test');
                     var msg = JSON.parse(event.data);
             console.log(msg);
             const scrolls = document.getElementById('reponse_ws');
             let newDiv = document.createElement('div');
-               
+               console.log('avant New_div');
                     newDiv.className = "sender";
                     newDiv.innerHTML = msg.firstname + ' ' + msg.name + "<br>" + msg.message;
                     scrolls.append(newDiv);

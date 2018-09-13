@@ -60,6 +60,7 @@ class Notifications implements MessageComponentInterface
             if ($from !== $client) {
                 $json->{'mine'}=0;
                 $msg=json_encode($json);
+                echo('send du msg mine = 0');
                 // The sender is not the receiver, send to each client connected
                  $client->send($msg);
     }else{
@@ -70,6 +71,7 @@ class Notifications implements MessageComponentInterface
         
     }
     }else{
+        echo('debut else');
         //insert l'event
         $user_event = $this->db->prepare("INSERT INTO event_users (`id_event`, `id_user`) VALUES (:id_event, $json->user)");
         $user_event->bindparam(':id_event', $json->event);
@@ -80,6 +82,7 @@ class Notifications implements MessageComponentInterface
         $event = $data_event->fetchAll();
         var_dump($event);
     }
+echo('fin du web socket');
 }
     public function onClose(ConnectionInterface $conn) {
         echo "Connection has disconnected\n";
