@@ -4,9 +4,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 
 $chat = new Addon_chat();
 
-    $id_user = $_SESSION['user']['id'] = '9';
-    $id_chat = $_SESSION['chat']['id'] = '2';
-    $id_event = $_SESSION['event']['id'] = '11';
+$id_user = $_SESSION['user']['id'] = '9';
+$id_chat = $_SESSION['chat']['id'] = '2';
+$id_event = $_SESSION['event']['id'] = '11';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -48,13 +49,17 @@ $chat = new Addon_chat();
         </div>
     </header>
     <main>
-        <ul id="slide-out" class="sidenav">
-            <li><a class="subheader one">Catégories</a></li>
+    <ul id="slide-out" class="sidenav">
+            <li>
+                <a class="subheader one"><i class="material-icons orange-text text-darken-3">flash_on</i>Catégories</a>
+            </li>
             <li><a class="waves-effect" href="#!">Sport</a></li>
             <li><a class="waves-effect" href="#!">Culture</a></li>
             <li><a class="waves-effect" href="#!">Divertissements</a></li>   
             <li><div class="divider"></div></li>
-            <li><a class="subheader two">Channels</a></li>
+            <li>
+                <a class="subheader two"><i class="material-icons purple-text text-darken-3">chat</i> Channels</a>
+            </li>
             <li><a class="waves-effect" href="chat-staff.php">Annonces</a></li>
             <li><a class="waves-effect chan-active" href="chat.php">Discussions</a></li>
         </ul>
@@ -80,18 +85,18 @@ $chat = new Addon_chat();
             <section id="space-chat">
                 <div id="reponse_ws">
                 <?php 
-            $nbr_chat = $chat->nbr_message($id_chat);
-            $nbr_chat = $nbr_chat[COUNT(`message`)];
-            var_dump($nbr_chat);
-                if($nbr_chat > 0){
-                    $all_message = $chat->all_user_id_message($id_chat);
-                    for($i = 0; $i < $nbr_chat; $i++){
-                        foreach($all_message as $message){
-                            echo($message);
+                    $nbr_chat = $chat->nbr_message($id_chat);
+                    $nbr_chat = $nbr_chat[COUNT(`message`)];
+                    // var_dump($nbr_chat);
+                        if($nbr_chat > 0){
+                            $all_message = $chat->all_user_id_message($id_chat);
+                            for($i = 0; $i < $nbr_chat; $i++){
+                                foreach($all_message as $message){
+                                    echo($message);
+                                }
+                            }
                         }
-                    }
-                }
-            ?>
+                    ?>
                     <div class="sender">
                         <h3>pseudo</h3>
                         <p>blablablalablablabla</p>

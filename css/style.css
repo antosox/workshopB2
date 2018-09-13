@@ -74,6 +74,7 @@ footer > a {
 .btn-off img,
 .btn-return img {
     width: 30px;
+    box-shadow: #333333;
 }
 
 .btn-add_event {
@@ -303,6 +304,7 @@ i.img-form-event {
 }
 
 img.menu-icon {
+    margin: 10px 0;
     width: 30px;
 }
 
@@ -310,7 +312,8 @@ img.menu-icon {
     font-family: Oswald, sans-serif;
     font-size: 15px;
     font-weight: 700;
-    color: #ef5a20
+    color: #ef6c00;
+    text-transform: uppercase;
 }
 
 .sidenav .subheader.two {
@@ -318,6 +321,7 @@ img.menu-icon {
     font-size: 15px;
     font-weight: 700;
     color: #6e2996;
+    text-transform: uppercase;
 }
 
 .sidenav li > a {
@@ -418,16 +422,6 @@ input#message {
     top: 0;
     border-bottom: none;
 }
-/* 
-.plane-send {
-    background-image: url("../img/send.png");
-    border: none;
-    color: transparent;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: right;
-} */
 
 .plane-send:focus {
     background-color: transparent;
@@ -440,7 +434,7 @@ input#message {
 
 .annonce-msg h3 {
     font-family: Oswald, sans-serif;
-    color: #ef5a20;
+    color: #ef6c00;
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;

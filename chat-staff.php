@@ -37,15 +37,19 @@
         </div>
     </header>
     <main>
-    <ul id="slide-out" class="sidenav">
-            <li><a class="subheader one">Catégories</a></li>
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <a class="subheader one"><i class="material-icons orange-text text-darken-3">flash_on</i>Catégories</a>
+            </li>
             <li><a class="waves-effect" href="#!">Sport</a></li>
             <li><a class="waves-effect" href="#!">Culture</a></li>
             <li><a class="waves-effect" href="#!">Divertissements</a></li>   
             <li><div class="divider"></div></li>
-            <li><a class="subheader two">Channels</a></li>
-            <li><a class="waves-effect" href="chat-staff.php">Annonces</a></li>
-            <li><a class="waves-effect chan-active" href="chat.php">Discussions</a></li>
+            <li>
+                <a class="subheader two"><i class="material-icons purple-text text-darken-3">chat</i> Channels</a>
+            </li>
+            <li><a class="waves-effect chan-active" href="chat-staff.php">Annonces</a></li>
+            <li><a class="waves-effect" href="chat.php">Discussions</a></li>
         </ul>
         <p class="menu-icon">
             <a href="#" data-target="slide-out" class="sidenav-trigger">
@@ -79,7 +83,7 @@
                         <button class="btn waves-effect waves-light plane-send purple darken-3" onclick="submit()">
                             <i class="material-icons center">send</i>
                         </button>  
-                    </div>     
+                    </div>
                 </div>
             </form>
         </div>
