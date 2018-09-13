@@ -24,12 +24,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
 </head>
     <body>
         <header>
-            <button class="btn-add_event btn-flat">
+             <a class="btn-add_event btn-flat" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php">
                 <img src="img/add-event.svg" alt="">
-            </button>
-            <button class="btn-off btn-flat">
+            </a>
+            <a class="btn-off btn-flat" href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php">
                 <img src="img/disconnection.svg" alt="disconnection">
-            </button>
+            </a>
+
             <div class="logo">
                 <h1>
                     <img src="img/logo.svg" alt="Evender">
