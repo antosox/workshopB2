@@ -21,15 +21,15 @@
 </head>
 <body>
     <header>
-        <a href="#" class="btn-return">
-            <img src="img/sign-out-option.svg" alt="return">
-        </a>
-        <a href="#" class="btn-add_event">
-            <img src="img/add-event.svg" alt="">
-        </a>
-        <a href="#" class="btn-off">
-            <img src="img/disconnection.svg" alt="disconnection">
-        </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/index.php" class="btn-return">
+                <img src="img/sign-out-option.svg" alt="return">
+            </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
+                <img src="img/add-event.svg" alt="">
+            </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
+                <img src="img/disconnection.svg" alt="disconnection">
+            </a>
         <div class="logo">
             <h1>
                 <img src="img/logo.svg" alt="Evender">
@@ -89,7 +89,7 @@
         </div>
     </main>
     <footer>
-        <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
+        <a class="waves-effect waves-light btn modal-trigger orange darken-3" href="#modal1">Mes évènements</a>
         <!-- Modal Structure -->
         <div id="modal1" class="modal bottom-sheet">
                 <div class="modal-content">

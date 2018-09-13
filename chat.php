@@ -33,15 +33,15 @@ $id_event = $_SESSION['event']['id'] = '11';
 
 <body>
     <header>
-        <a href="#" class="btn-return">
-            <img src="img/sign-out-option.svg" alt="return">
-        </a>
-        <a href="#" class="btn-add_event">
-            <img src="img/add-event.svg" alt="">
-        </a>
-        <a href="#" class="btn-off">
-            <img src="img/disconnection.svg" alt="disconnection">
-        </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/index.php" class="btn-return">
+                <img src="img/sign-out-option.svg" alt="return">
+            </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
+                <img src="img/add-event.svg" alt="">
+            </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
+                <img src="img/disconnection.svg" alt="disconnection">
+            </a>
         <div class="logo">
             <h1>
                 <img src="img/logo.svg" alt="Evender">

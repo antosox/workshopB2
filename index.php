@@ -6,8 +6,6 @@ if(empty($_SESSION['connected'])) {
     header('location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
 
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,13 +30,13 @@ if(empty($_SESSION['connected'])) {
 </head>
     <body>
         <header>
-            <a href="#" class="btn-return">
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/index.php" class="btn-return">
                 <img src="img/sign-out-option.svg" alt="return">
             </a>
             <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
                 <img src="img/add-event.svg" alt="">
             </a>
-            <a href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
                 <img src="img/disconnection.svg" alt="disconnection">
             </a>
             <div class="logo">
