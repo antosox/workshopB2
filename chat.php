@@ -82,7 +82,7 @@ $chat = new Addon_chat();
                     <img src="img/delete.png" alt="delete">
                 </a><?php } ?>
             </div>
-            <section id="space-chat">
+            <section class="space-chat" id="space-chat">
                 <div id="reponse_ws">
                 <?php 
             $nbr_chat = $chat->nbr_message($id_chat);
@@ -227,6 +227,6 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
-    
+        $(".space-chat").animate({ scrollTop: $(this).height() }, "fast");
         </script>
 </html>
