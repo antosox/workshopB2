@@ -1,7 +1,13 @@
+.header {
+
+z-index:0;
+
+}
+
 
 .tinder {
   width: 100vw;
-  height: 140vh;
+  height: 135vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -12,6 +18,8 @@
 
 .loaded.tinder {
   opacity: 1;
+  z-index: 0;
+  
 }
 
 .tinder--status {
@@ -56,11 +64,11 @@
 
 .tinder--card {
   display: inline-block;
-  width: 90vw;
-  max-width: 400px;
+  width: 80%;
   height: 115vh;
   background: #CCCCCC;
   padding-bottom: 140px;
+ 
   border-radius: 8px;
   overflow: hidden;
   position: absolute;
@@ -103,9 +111,10 @@
 }
 
 .tinder--buttons {
-  flex: 0 0 100px;
+ 
   text-align: center;
   padding-top: 0;
+ 
 }
 
 .tinder--buttons button {
@@ -116,6 +125,7 @@
   background: #FFFFFF;
   display: inline-block;
   margin: 0 8px;
+  z-index: 6;
 }
 
 .tinder--buttons button:focus {

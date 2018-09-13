@@ -1,5 +1,13 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
+session_start();
+if(empty($_SESSION['connected'])) {
+
+    header('location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,9 +51,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
           <i class="fa fa-remove"></i>
           <i class="fa fa-check"></i>
             </div>
-
+            <div class="tinder--cards">
 <?php
-   session_start();
+   
  $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
  $req = $db->prepare("SELECT * FROM event");
  $req->execute();
@@ -70,7 +78,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
     $admin->execute();
     $adm = $admin->fetch();
 
-    echo '<div class="tinder--cards">
+    echo '
           <div class="tinder--card">
             <img src="Assets/Events/'.$event['image'].'">
             <div class="infos">
@@ -101,14 +109,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Includes/config.php';
                     <div class="date deadline">2018-09-12 13:30:00.0000</div>
                     <div class="count"></div>
                 </div>
-            </div>';
+                </div>';
  }
             ?>
-        <div class="tinder--buttons">
+        
+ </div>     
+ <div class="tinder--buttons">
           <button id="nope"><i class="fa fa-remove"></i></button>
           <button id="love"><i class="fa fa-check"></i></button>
         </div>
- </div>     
         </main>
         <footer>
             <a class="waves-effect waves-light btn modal-trigger purple darken-3" href="#modal1">Mes évènements</a>
