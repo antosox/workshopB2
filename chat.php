@@ -104,6 +104,30 @@ $id_event = $_SESSION['event']['id'] = '11';
                     <div class="receiver">
                         <h3>pseudo</h3>
                         <p>blablablalablablabla</p>
+                    </div>
+                    <div class="sender">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div>
+                    <div class="receiver">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div> 
+                    <div class="sender">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div>
+                    <div class="receiver">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div> 
+                    <div class="sender">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
+                    </div>
+                    <div class="receiver">
+                        <h3>pseudo</h3>
+                        <p>blablablalablablabla</p>
                     </div> 
                 </div>
             </section>
