@@ -188,5 +188,13 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
+        
+    if ($(".tinder--card").hasClass('tinder_love')){
+            console.log("1");
+            submit();
+    } else {
+        console.log("0");
+    }
+
         </script>
 </html>

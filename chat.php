@@ -226,5 +226,6 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
+    
         </script>
 </html>
