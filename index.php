@@ -32,13 +32,15 @@ if(empty($_SESSION['connected'])) {
 </head>
     <body>
         <header>
-             <a class="btn-add_event btn-flat" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php">
+            <a href="#" class="btn-return">
+                <img src="img/sign-out-option.svg" alt="return">
+            </a>
+            <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
                 <img src="img/add-event.svg" alt="">
             </a>
-            <a class="btn-off btn-flat" href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php">
+            <a href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
                 <img src="img/disconnection.svg" alt="disconnection">
             </a>
-
             <div class="logo">
                 <h1>
                     <img src="img/logo.svg" alt="Evender">

@@ -21,12 +21,15 @@
 </head>
 <body>
     <header>
-        <button class="btn-add_event btn-flat">
+        <a href="#" class="btn-return">
+            <img src="img/sign-out-option.svg" alt="return">
+        </a>
+        <a href="#" class="btn-add_event">
             <img src="img/add-event.svg" alt="">
-        </button>
-        <button class="btn-off btn-flat">
+        </a>
+        <a href="#" class="btn-off">
             <img src="img/disconnection.svg" alt="disconnection">
-        </button>
+        </a>
         <div class="logo">
             <h1>
                 <img src="img/logo.svg" alt="Evender">

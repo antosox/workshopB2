@@ -70,24 +70,28 @@ footer > a {
 
 /*____________________________________ INDEX ____________________________________*/
 
-.btn-add_event, 
-.btn-off,
-.btn-flat:focus {
-    width: 65px;
-    background-color: transparent;
-    border: none;
+.btn-add_event img, 
+.btn-off img,
+.btn-return img {
+    width: 30px;
 }
 
 .btn-add_event {
     position: absolute;
+    left: 45%;
     top: 10px;
-    left: 0;
+}
+
+.btn-return {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .btn-off {
     position: absolute;
     top: 10px;
-    right: 0;
+    right: 10px;
 }
 
 .logo {
