@@ -80,8 +80,8 @@ $chat = new Addon_chat();
                 }
                 ?>
             </div>
-            <section id="space-chat">
-                <div class="reponse_ws">
+            <section id="space-chat" class="space-chat">
+                <div  class="reponse_ws">
                     
                     <?php 
             $nbr_chat = $chat->nbr_message($id_chat);
@@ -210,5 +210,7 @@ function submit() {
             ws.send(JSON.stringify(data));
                 
         }
+
+        $(".space-chat").animate({ scrollTop: $(this).height() }, "fast");
         </script>
 </html>
