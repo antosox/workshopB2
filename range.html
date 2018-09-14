@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <!-- Feuilles CSS -->
+    <link rel="stylesheet" href="css/choice.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+    <script src="js/countdown.js"></script>
+    <title>Evender</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="btn-return">
+            <img src="img/sign-out-option.svg" alt="return">
+        </a>
+        <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/add-event.php" class="btn-add_event">
+            <img src="img/add-event.svg" alt="">
+        </a>
+        <a href="http:<?php echo $_SERVER['HTTP_HOST'] ?>/deconnect.php" class="btn-off">
+            <img src="img/disconnection.svg" alt="disconnection">
+        </a>
+        <div class="logo">
+            <h1>
+                <img src="img/logo.svg" alt="Evender">
+            </h1>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col s12">
+                <form method="post" action="/Boxtraitement.php">
+                    <input type="hidden" name="iduser" value=""/>
+                    <input type="hidden" name="idevent" value="">
+                    <h4 class=" yellow-text text-darken-2 title_range">Price</h4>
+                    <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                    <p class="range-field">
+                        <input type="range" id="price_range" name="prix" min="0" max="5" /> 
+                    </p>
+                    <i class="material-icons good">sentiment_very_satisfied</i>
+
+                    <h4 class="red-text text-darken-4 title_range">Ambiance</h4>
+
+                    <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                    <p class="range-field">
+                        <input type="range" id="ambiance_range" name="ambiance" min="0" max="5" />
+                    </p>
+                    <i class="material-icons good">sentiment_very_satisfied</i>
+
+                    <h4 class="blue-text text-darken-4 title_range">Organisation</h4>
+
+                    <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                    <p class="range-field">
+                        <input type="range" id="org_range" name="organisation" min="0" max="5" />
+                    </p>
+                    <i class="material-icons good">sentiment_very_satisfied</i>
+                    <button class="purple darken-3 btn vote" type="submit"><i class="material-icons left">feedback</i>Vote</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="js/slide.js"></script>
+
+</html>
