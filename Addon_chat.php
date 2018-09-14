@@ -48,7 +48,6 @@ class Addon_chat {
     }
 
     public function all_user_id_message($id_chat){
-        var_dump($id_chat);
         $msg = $this->db->prepare("SELECT `id_messages` FROM messages_channels WHERE `id_channel` = :id_chat ORDER BY `id_messages`");
         $msg->bindparam(':id_chat', $id_chat);
         $msg->execute();
@@ -119,6 +118,14 @@ class Addon_chat {
         $user->bindparam(':idmsg', $id_message);
         $user->execute();
         return $id = $user->fetch();
+    }
+
+    public function get_id_event($id_channel){
+
+        $id = $this->db->prepare("SELECT * FROM events_channels  ec JOIN event e ON e.id_event = ec.id_event WHERE id_channel = '$id_channel'");
+        $id->execute();
+        $id_event = $id ->fetch();
+        return $id_event['id_event'];
     }
 
 

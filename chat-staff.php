@@ -1,12 +1,13 @@
 <?php
-
+session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 
 $chat = new Addon_chat();
 
-    $id_user = $_SESSION['user']['id'] = '11';
-    $id_chat = $_SESSION['chat']['id'] = '17';
-    $id_event = $_SESSION['event']['id'] = '35';
+    $id_user = $_SESSION['user']['id'];
+    $id_channel = $_GET['id_channel'];
+    $id_event = $chat->get_id_event($id_channel);
+
 
 ?>
 <!DOCTYPE html>
@@ -84,14 +85,14 @@ $chat = new Addon_chat();
                 <div  class="reponse_ws">
                     
                     <?php 
-            $nbr_chat = $chat->nbr_message($id_chat);
+            $nbr_chat = $chat->nbr_message($id_channel);
             $nbr_chat = $nbr_chat[COUNT(`message`)];
             
             $admin = $chat->is_event_admin($id_user, $id_event);
            
                 if($nbr_chat > 0){
                     
-                    $all_message = $chat->all_user_id_message($id_chat);
+                    $all_message = $chat->all_user_id_message($id_channel);
                    
                         foreach($all_message as $message){
                            $getmsg = $chat->message_of_user($message['id_messages']);
@@ -169,41 +170,27 @@ $chat = new Addon_chat();
                 <div class="modal-content">
                     <h4>Mes évènements</h4>
                     <table class="striped">
-                        <tr class="event-row">
+                    <?php
+                            $channels = $db->prepare("SELECT * From event_users eu join event e 
+                            on eu.id_event = e.id_event where id_user = :iduser");
+                            $channels->bindValue(':iduser', $_SESSION['user']['id']);
+                            $channels->execute();
+                            $participates = $channels->fetchAll();
+                            foreach($participates as $participate) {
+                                $id_event = $participate['id_event'];
+                                $event = $db->prepare("SELECT id_channel from events_channels where id_event = '$id_event'");
+                                $event->execute();
+                                $id_channel = $event->fetchAll();
+                            echo '
+                            <tr class="event-row">
                             <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
-                        <tr class="event-row">
-                            <td>
-                                <a href="#" class="title-event">Titre</a>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
-                            </td>
-                        </tr>
+                                <h2 class="title-event">'.$participate['title'].'</h2>
+                                <a href="chat-staff.php?id_channel='.$id_channel[0]['id_channel'].'" class="annonces">Annonces</a>
+                                <a href="chat.php?id_channel='.$id_channel[1]['id_channel'].'" class="discuss">Discussion</a>
+                                </td> 
+                                </tr>';
+                            }
+                        ?>
                     </table>
                 </div>
             </div>
@@ -234,7 +221,7 @@ $chat = new Addon_chat();
 
 function submit() {
             var msg = document.getElementById('message').value;
-            var chatroom = <?php echo $id_chat ?>;
+            var chatroom = <?php echo $id_channel ?>;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
             var data = {
                 event: 0,

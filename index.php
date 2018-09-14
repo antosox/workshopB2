@@ -129,19 +129,23 @@ if(empty($_SESSION['connected'])) {
                     <h4>Mes évènements</h4>
                     <table id="table_event" class="striped">
                         
-                            <?php
+                    <?php
                             $channels = $db->prepare("SELECT * From event_users eu join event e 
                             on eu.id_event = e.id_event where id_user = :iduser");
                             $channels->bindValue(':iduser', $_SESSION['user']['id']);
                             $channels->execute();
                             $participates = $channels->fetchAll();
                             foreach($participates as $participate) {
+                                $id_event = $participate['id_event'];
+                                $event = $db->prepare("SELECT id_channel from events_channels where id_event = '$id_event'");
+                                $event->execute();
+                                $id_channel = $event->fetchAll();
                             echo '
                             <tr class="event-row">
                             <td>
                                 <h2 class="title-event">'.$participate['title'].'</h2>
-                                <a href="#" class="annonces">Annonces</a>
-                                <a href="#" class="discuss">Discussion</a>
+                                <a href="chat-staff.php?id_channel='.$id_channel[0]['id_channel'].'" class="annonces">Annonces</a>
+                                <a href="chat.php?id_channel='.$id_channel[1]['id_channel'].'" class="discuss">Discussion</a>
                                 </td> 
                                 </tr>';
                             }
