@@ -48,10 +48,10 @@ if(empty($_SESSION['connected'])) {
             </div>
         </header>
         <main>
-<div class="tinder"  id="test">
+            <div class="tinder" id="test">
             <div class="tinder--status">
-          <i class="fa fa-remove"></i>
-          <i class="fa fa-check"></i>
+                <i class="fa fa-remove"></i>
+                <i class="fa fa-check"></i>
             </div>
             <div class="tinder--cards">
 <?php
@@ -156,7 +156,32 @@ if(empty($_SESSION['connected'])) {
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
     <script type="text/javascript" src="js/slide.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        
+        var dragged;
+
+        function hello(){
+            console.log("Saluuuuuuut");
+        }
+
+        document.addEventListener("drag", function( event ) {
+            
+        }, false);
+
+        document.addEventListener("dragstart", function( event ) {
+            // store a ref. on the dragged elem
+            dragged = event.target;
+            // make it half transparent
+            event.target.style.opacity = .5;
+        }, false);
+      
+        document.addEventListener("dragend", function( event ) {
+            // reset the transparency
+            event.target.style.opacity = 0;
+            hello();
+        }, false);
+    
+    </script>
 <script>
 console.log('test');
             var ws = new WebSocket('ws://localhost:9000');
@@ -180,31 +205,32 @@ console.log('test');
             }
 
 function submit() {
-console.log('test');
+            console.log('test');
             var id_event = document.getElementById('id_event').value;
             var user = <?php echo json_encode($_SESSION['user']['id']) ?>;
             var data = {
             event: 1,
             message: id_event,
                     user: user};
-            ws.send(JSON.stringify(data));
-                
+            ws.send(JSON.stringify(data));         
         }
 
-        let elm = document.getElementById('test');
-        if(elm.className === 'tinder_love'){
-            console.log("1");
+        var myElement = document.getElementById('test');
+
+            var mc = new Hammer(myElement);
+
+            //enable all directions
+            mc.get('swipe').set({
+            direction: Hammer.DIRECTION_ALL,
+            threshold: 1, 
+            velocity:0.1
+            });
+
+            // listen to events...
+            mc.on("swiperight", function(ev) {
             submit();
-        } else {
-            console.log("0");
-        }
-        
-    // if ($(".tinder--card").hasClass('tinder_love')){
-    //         console.log("1");
-    //         submit();
-    // } else {
-    //     console.log("0");
-    // }
+            });
 
-        </script>
+    </script>
+
 </html>

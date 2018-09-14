@@ -195,6 +195,7 @@ $chat = new Addon_chat();
             }
         
             ws.onmessage = function (event) {
+                console.log('test entrée on message chat');
                     var msg = JSON.parse(event.data);
             console.log(msg);
             const scrolls = document.getElementById('reponse_ws');

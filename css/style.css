@@ -296,6 +296,7 @@ i.img-form-event {
 /*_____________________________ CHAT _____________________________*/
 
 .menu-icon {
+    display: none;
     text-align: center;
 }
 
@@ -450,7 +451,7 @@ input#message {
 }
 
 #space-chat {
-    height: 120px;
+    height: 160px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -465,4 +466,29 @@ input#message {
 .count {
     font-family: Oswald, sans-serif;
     color: red;
+}
+
+/*_________________ RANGE _________________*/
+
+.title_range {
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.range-field {
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    padding-top: 8px;
+}
+
+.good, .bad {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.vote {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
 }
