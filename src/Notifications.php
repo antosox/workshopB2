@@ -77,7 +77,8 @@ class Notifications implements MessageComponentInterface
         $user_event->bindparam(':id_event', $json->event);
         $user_event->execute();
         //return l'id de l'event et l'id de ses chats et le nom de l'event
-        $data_event = $this->db->prepare("SELECT `id_channel`, `title` FROM event JOIN events_channels ON event.`id_event`=events_channels.`id_event` WHERE event.`id_event` = $json->user;");
+        $data_event = $this->db->prepare("SELECT `id_channel`, `title` FROM event JOIN events_channels ON event.`id_event`=events_channels.`id_event` WHERE event.`id_event` = :id_event");
+        $data_event->bindparam(':id_event', $json->event);
         $data_event->execute();
         $event = $data_event->fetchAll();
         var_dump($event);
