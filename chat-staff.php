@@ -5,8 +5,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Addon_chat.php';
 $chat = new Addon_chat();
 
     $id_user = $_SESSION['user']['id'] = '11';
-    $id_chat = $_SESSION['chat']['id'] = '13';
-    $id_event = $_SESSION['event']['id'] = '32';
+    $id_chat = $_SESSION['chat']['id'] = '17';
+    $id_event = $_SESSION['event']['id'] = '35';
 
 ?>
 <!DOCTYPE html>
@@ -107,7 +107,42 @@ $chat = new Addon_chat();
                             echo '</p>';
                             echo '</div>';
                         }
+                        $date_event = $chat->get_date_event($id_event);
+                         $temps = date("Y-m-d-H:i:s");
+                       if (strtotime($temps) < strtotime($date_event['Date'])) {
+                        echo '<div class="row">
+                        <div class="col s12">
+                            <form method="post" action="/Boxtraitement.php">
+                                <input type="hidden" name="iduser" value="'.$id_user.'"/>
+                                <input type="hidden" name="idevent" value="'.$id_event.'">
+                                <h4 class=" yellow-text text-darken-2 title_range">Price</h4>
+                                <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                                <p class="range-field">
+                                    <input type="range" id="price_range" name="prix" min="0" max="5" /> 
+                                </p>
+                                <i class="material-icons good">sentiment_very_satisfied</i>
+            
+                                <h4 class="red-text text-darken-4 title_range">Ambiance</h4>
+            
+                                <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                                <p class="range-field">
+                                    <input type="range" id="ambiance_range" name="ambiance" min="0" max="5" />
+                                </p>
+                                <i class="material-icons good">sentiment_very_satisfied</i>
+            
+                                <h4 class="blue-text text-darken-4 title_range">Organisation</h4>
+            
+                                <i class="material-icons bad">sentiment_very_dissatisfied</i>
+                                <p class="range-field">
+                                    <input type="range" id="org_range" name="organisation" min="0" max="5" />
+                                </p>
+                                <i class="material-icons good">sentiment_very_satisfied</i>
+                                <button class="purple darken-3 btn vote" type="submit"><i class="material-icons left">feedback</i>Vote</button>
+                            </form>
+                        </div>
+                    </div>';
                 }
+            }
             ?>
        
                 </div>

@@ -14,12 +14,12 @@ $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, 
     $req->bindValue(':ambiance', $ambiance);
     $req->bindValue(':prix', $prix);
     $req->bindValue(':organisation', $organisation);
-    $req->bindValue(':iduser', $iduser);
+    $req->bindValue(':eventid', $id_event);
     $req->execute();
 
     $req = $db->prepare("UPDATE `event_users` SET `vote` = '1' WHERE `event_users`.`id_event` = :idevent AND `event_users`.`id_user` = :iduser ");
-    $req->bindValue(':idevent', $ambiance);
-    $req->bindValue(':iduser', $ambiance);
+    $req->bindValue(':idevent', $id_event);
+    $req->bindValue(':iduser', $iduser);
     $req->execute();
        
 

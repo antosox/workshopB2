@@ -62,6 +62,13 @@ class Addon_chat {
         return $user_message = $message->fetch();
     }
 
+    public function get_date_event($id_event){
+
+        $eventdate = $this->db->prepare("SELECT `Date` FROM event WHERE `id_event` = $id_event");
+        $eventdate->execute();
+        return $event_date = $eventdate->fetch();
+    }
+
     public function nbr_message($id_chat){
 
 
