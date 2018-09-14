@@ -48,7 +48,7 @@ if(empty($_SESSION['connected'])) {
             </div>
         </header>
         <main>
-            <div class="tinder" id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+            <div class="tinder" id="test">
             <div class="tinder--status">
                 <i class="fa fa-remove"></i>
                 <i class="fa fa-check"></i>
@@ -214,12 +214,22 @@ function submit() {
                     user: user};
             ws.send(JSON.stringify(data));         
         }
-        // document.addEventListener("dragend", function( event ) {
-        //     // reset the transparency
-        //     // event.target.style.opacity = "";
-        //     event.target.style.opacity = 0;
-        //     submit();
-        // }, false);
+
+        var myElement = document.getElementById('test');
+
+            var mc = new Hammer(myElement);
+
+            //enable all directions
+            mc.get('swipe').set({
+            direction: Hammer.DIRECTION_ALL,
+            threshold: 1, 
+            velocity:0.1
+            });
+
+            // listen to events...
+            mc.on("swiperight", function(ev) {
+            submit();
+            });
 
     </script>
 
