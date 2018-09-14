@@ -156,6 +156,32 @@ if(empty($_SESSION['connected'])) {
     <script src="js/script.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>  
     <script type="text/javascript" src="js/slide.js"></script>
+    <script type="text/javascript">
+        
+        var dragged;
+
+        function hello(){
+            console.log("Saluuuuuuut");
+        }
+
+        document.addEventListener("drag", function( event ) {
+            
+        }, false);
+
+        document.addEventListener("dragstart", function( event ) {
+            // store a ref. on the dragged elem
+            dragged = event.target;
+            // make it half transparent
+            event.target.style.opacity = .5;
+        }, false);
+      
+        document.addEventListener("dragend", function( event ) {
+            // reset the transparency
+            event.target.style.opacity = 0;
+            hello();
+        }, false);
+    
+    </script>
 <script>
 console.log('test');
             var ws = new WebSocket('ws://localhost:9000');
@@ -188,30 +214,6 @@ function submit() {
                     user: user};
             ws.send(JSON.stringify(data));         
         }
-
-        var dragged;
-
-        function hello(){
-            console.log("Saluuuuuuut");
-        }
-
-        document.addEventListener("drag", function( event ) {
-            
-        }, false);
-
-        document.addEventListener("dragstart", function( event ) {
-            // store a ref. on the dragged elem
-            dragged = event.target;
-            // make it half transparent
-            event.target.style.opacity = .5;
-        }, false);
-      
-        document.addEventListener("dragend", function( event ) {
-            // reset the transparency
-            event.target.style.opacity = 0;
-            hello();
-        }, false);
-
         // document.addEventListener("dragend", function( event ) {
         //     // reset the transparency
         //     // event.target.style.opacity = "";
